@@ -30,4 +30,4 @@ Developed with Laravel4
 	PHP >= 5.4.0 (Entrust requires 5.4, this is an increase over Laravel's 5.3.7 requirement)
 	MCrypt PHP Extension
 
-Any questions, feel free to [contact me](faiyaz26 [at] gmail [dot] com )
+Any questions, feel free to contact me @ faiyaz26 [at] gmail [dot] com .
