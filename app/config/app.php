@@ -121,11 +121,13 @@ return array(
         'Basset\BassetServiceProvider', // Better Asset Management
         'Robbo\Presenter\PresenterServiceProvider', // Presenter
         'Bllim\Datatables\DatatablesServiceProvider', // Datatables
+        'anlutro\cURL\Laravel\cURLServiceProvider',
+        'Yangqi\Htmldom\HtmldomServiceProvider',
 
         /* Uncomment for use in development */
-//        'Way\Generators\GeneratorsServiceProvider', // Generators
-//        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
-
+        'Way\Generators\GeneratorsServiceProvider', // Generators
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
+        'Philf\Setting\SettingServiceProvider',
     ),
 
     /*
@@ -201,6 +203,7 @@ return array(
         'String'          => 'Andrew13\Helpers\String', // String
         'Carbon'          => 'Carbon\Carbon', // Carbon
         'Datatables'      => 'Bllim\Datatables\Datatables', // DataTables
+        'Htmldom' => 'Yangqi\Htmldom\Htmldom'
 
     ),
 

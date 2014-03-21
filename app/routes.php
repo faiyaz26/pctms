@@ -70,6 +70,19 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('roles/{role}/delete', 'AdminRolesController@postDelete');
     Route::controller('roles', 'AdminRolesController');
 
+
+    #Division Management
+    Route::get('division/data', 'AdminDivisionController@data');
+    Route::get('division/{division}/del', 'AdminDivisionController@delete');
+    Route::resource('division', 'AdminDivisionController');
+
+
+    Route::get('announcement/data', 'AdminContestAnnouncementController@data');
+    Route::get('announcement/{announcement}/del', 'AdminContestAnnouncementController@delete');
+    Route::resource('announcement', 'AdminContestAnnouncementController');
+    
+    //Route::get('division', 'AdminDivisionController@index');
+
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
 });
@@ -82,6 +95,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
 // Profile Show routes
 Route::get('/profile/{username}', 'ProfileController@show');
+Route::get('/test', function(){
+        $contest_ann = ContestAnnouncement::where('contest_datetime', '>', time())->get();
+        return $contest_ann;
+});
 // User reset routes
 Route::get('user/reset/{token}', 'UserController@getReset');
 // User password reset
@@ -94,7 +111,8 @@ Route::post('user/login', 'UserController@postLogin');
 
 # User RESTful Routes (Login, Logout, Register, etc)
 Route::controller('user', 'UserController');
-
+Route::get('/register', 'UserController@getCreate');
+Route::get('/login', 'UserController@getLogin');
 //:: Application Routes ::
 
 # Filter for detect language

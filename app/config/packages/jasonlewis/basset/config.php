@@ -53,6 +53,7 @@ return array(
                 $collection->add('wysihtml5/bootstrap-wysihtml5.css');
                 $collection->add('datatables-bootstrap.css');
                 $collection->add('colorbox.css');
+                $collection->add('bootstrap-datetimepicker.min.css');
 				$collection->add('bootstrap/bootstrap.min.css');
             })->apply('UriRewriteFilter')->apply('CssMin');
 
@@ -66,6 +67,9 @@ return array(
                 $collection->javascript('jquery.dataTables.min.js');
                 $collection->add('datatables-bootstrap.js');
                 $collection->add('datatables.fnReloadAjax.js');
+                $collection->add('moment.js');
+                $collection->add('bootstrap-datetimepicker.min.js');
+
                 $collection->add('jquery.colorbox.js');
                 $collection->add('prettify.js');
             })->apply('JsMin');

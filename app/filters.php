@@ -122,3 +122,10 @@ Route::filter('detectLang',  function($route, $request, $lang = 'auto')
         App::setLocale($userLang);
     }
 });
+
+View::composer('site.layouts.default', function($view){
+    Setting::set('contest_view_limit', 2);
+    $lim = Setting::get('contest_view_limit');
+    $contest_ann = ContestAnnouncement::where('contest_datetime', '>', time())->take($lim)->orderBy('contest_datetime', 'asc')->get();
+    $view->with('contest_ann', $contest_ann);
+});
