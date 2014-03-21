@@ -96,6 +96,7 @@
     					<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><span class="glyphicon glyphicon-list-alt"></span> Blog</a></li>
     					<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Comments</a></li>
     					<li{{ (Request::is('admin/division*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/division') }}}"><span class="glyphicon glyphicon-th"></span> Division</a></li>
+    					<li{{ (Request::is('admin/announcement*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/announcement') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Contest Announcements</a></li>
     					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
     					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
     						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
