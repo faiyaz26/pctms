@@ -65,13 +65,14 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
+			'host'     => 'ec2-54-204-27-119.compute-1.amazonaws.com',
+			'database' => 'db3bu7q6coeng3',
+			'username' => 'slhoqusdgztxfh',
+			'password' => 'nUJqox4Wr4tKY7xj0PDCtXdGQp',
 			'charset'  => 'utf8',
 			'prefix'   => '',
-            'schema'   => 'public',
+			'schema'   => 'public',
+			'port' => '5432'
 		),
 
 		'sqlsrv' => array(

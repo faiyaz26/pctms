@@ -13,14 +13,18 @@
             {
                 "type": "vcs",
                 "url": "https://github.com/Zizaco/ardent.git"
-            }
+            },
+			{
+				"type":"vcs",
+				"url": "https://github.com/Marwelln/basset"
+			}
         ],
 	"require": {
 		"laravel/framework": "4.1.*",
 		"twbs/bootstrap":  "3.0.0",
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
-		"jasonlewis/basset": "dev-master",
+		"etrepat/basset": "dev-master",
 		"robclancy/presenter": "1.2.*",
         "j20/php-uuid": "dev-master",
         "bllim/datatables": "*",
@@ -51,16 +55,19 @@
 		]
 	},
 	"scripts": {
-		"pre-update-cmd": [
-			"php artisan clear-compiled"
-		],
-		"post-install-cmd": [
-			"php artisan optimize"
-		],
-		"post-update-cmd": [
-			"php artisan optimize"
-		]
-	},
+        "post-install-cmd": [
+            "php artisan optimize"
+        ],
+        "pre-update-cmd": [
+            "php artisan clear-compiled"
+        ],
+        "post-update-cmd": [
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
 	"config": {
 		"preferred-install": "dist"
 	},
