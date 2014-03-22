@@ -16,7 +16,8 @@ class UserInfoTableSeeder extends Seeder {
                 'loj_handle' => 'admin',
                 'uva_handle' => 'admin',
                 'sgu_handle' => 'admin',
-                'hustoj_handle' => 'admin'
+                'hustoj_handle' => 'admin',
+                'tc_handle' => 'admin'
             ),
             array(
                 'user_id'      => '2',
@@ -26,7 +27,8 @@ class UserInfoTableSeeder extends Seeder {
                 'loj_handle' => 'admin',
                 'uva_handle' => 'admin',
                 'sgu_handle' => 'admin',
-                'hustoj_handle' => 'admin'
+                'hustoj_handle' => 'admin',
+                'tc_handle' => 'admin'
             )
         );
 

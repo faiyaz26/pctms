@@ -79,7 +79,7 @@ a university or any other institution. It is kinda intra social network." />
 			</div>
 		</div>
 		<!-- ./ navbar -->
-		<div style = "padding-top: 6%;">
+		<div style = "margin-top: 5%;">
 		</div>
 		<!-- Container -->
 		<div class="container">

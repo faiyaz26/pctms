@@ -26,6 +26,7 @@ class CREATEUSERINFOTABLE extends Migration {
             $table->string('sgu_handle')->default("")->nullable();
             $table->string('hustoj_handle')->default("")->nullable();
             $table->string('cm_handle')->default("")->nullable();
+            $table->string('tc_handle')->default("")->nullable();
             $table->timestamps();
         });
 

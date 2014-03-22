@@ -134,7 +134,8 @@
             </div>
 		</div>
 		<!-- ./ navbar -->
-
+		<div style = "margin-top: 5%;">
+		</div>
 		<!-- Notifications -->
 		@include('notifications')
 		<!-- ./ notifications -->

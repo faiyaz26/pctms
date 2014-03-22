@@ -14,7 +14,7 @@ class ConfideSetupUsersTable extends Migration {
         Schema::create('users', function($table)
         {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->increments('id')->onDelete('cascade');
             $table->string('fullname')->nullable();
             $table->string('username');
             $table->string('email');

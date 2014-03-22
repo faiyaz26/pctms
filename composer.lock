@@ -3,7 +3,11 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
+<<<<<<< HEAD
     "hash": "5c9a7603fbd0586b9676668f28038acc",
+=======
+    "hash": "3c1e25eacfa7e78006c22e2783fb69ca",
+>>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
     "packages": [
         {
             "name": "anlutro/curl",
@@ -181,6 +185,7 @@
             "time": "2014-01-17 12:21:18"
         },
         {
+<<<<<<< HEAD
             "name": "etrepat/basset",
             "version": "dev-master",
             "source": {
@@ -246,6 +251,8 @@
             "time": "2014-02-25 12:05:15"
         },
         {
+=======
+>>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
             "name": "filp/whoops",
             "version": "1.0.10",
             "source": {
@@ -371,6 +378,78 @@
             "time": "2013-04-03 18:44:02"
         },
         {
+<<<<<<< HEAD
+=======
+            "name": "jasonlewis/basset",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jasonlewis/basset.git",
+                "reference": "79b94c3edef5015a34e3a0f834586358a6f99885"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jasonlewis/basset/zipball/79b94c3edef5015a34e3a0f834586358a6f99885",
+                "reference": "79b94c3edef5015a34e3a0f834586358a6f99885",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/assetic": "1.1.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "illuminate/config": "4.0.*",
+                "illuminate/console": "4.0.*",
+                "illuminate/filesystem": "4.0.*",
+                "illuminate/log": "4.0.*",
+                "illuminate/routing": "4.0.*",
+                "illuminate/support": "4.0.*",
+                "mockery/mockery": ">=0.7.2",
+                "symfony/process": "2.3.*"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Deploy static assets directly to your S3 buckets.",
+                "rackspace/php-cloudfiles": "Deploy static assets directly to your Cloud Files container."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Basset": "src/"
+                },
+                "classmap": [
+                    "tests/Cases/FilterTestCase.php"
+                ],
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jason Lewis",
+                    "email": "jason.lewis1991@gmail.com",
+                    "homepage": "http://jasonlewis.me",
+                    "role": "Creator"
+                }
+            ],
+            "description": "A better asset management package for Laravel.",
+            "keywords": [
+                "assets",
+                "basset",
+                "laravel"
+            ],
+            "time": "2013-11-06 08:17:47"
+        },
+        {
+>>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
             "name": "jeremeamia/SuperClosure",
             "version": "1.0.1",
             "source": {
@@ -3190,7 +3269,11 @@
     "stability-flags": {
         "zizaco/confide": 20,
         "zizaco/entrust": 20,
+<<<<<<< HEAD
         "etrepat/basset": 20,
+=======
+        "jasonlewis/basset": 20,
+>>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
         "j20/php-uuid": 20,
         "anlutro/curl": 20,
         "yangqi/htmldom": 20,

@@ -113,6 +113,21 @@ class AdminUsersController extends AdminController {
             // Save roles. Handles updating.
             $this->user->saveRoles(Input::get( 'roles' ));
 
+            $info = new UserInfo;
+
+            $info->user_id = $this->user->id;
+            $info->cf_handle = Input::get('cf_handle');
+            $info->cc_handle = Input::get('cc_handle');
+            $info->cm_handle = Input::get('cm_handle');
+            $info->loj_handle = Input::get('loj_handle');
+            $info->uva_handle = Input::get('uva_handle');
+            $info->spoj_handle = Input::get('spoj_handle');
+            $info->hustoj_handle = Input::get('hustoj_handle');
+            $info->sgu_handle = Input::get('sgu_handle');
+            $info->tc_handle = Input::get('tc_handle');
+
+            $info->save();
+
             // Redirect to the new user page
             return Redirect::to('admin/users/' . $this->user->id . '/edit')->with('success', Lang::get('admin/users/messages.create.success'));
         }
@@ -150,13 +165,13 @@ class AdminUsersController extends AdminController {
         {
             $roles = $this->role->all();
             $permissions = $this->permission->all();
-
+            $info = UserInfo::find($user->id);
             // Title
         	$title = Lang::get('admin/users/title.user_update');
         	// mode
         	$mode = 'edit';
 
-        	return View::make('admin/users/create_edit', compact('user', 'roles', 'permissions', 'title', 'mode'));
+        	return View::make('admin/users/edit', compact('user', 'roles', 'permissions', 'title', 'mode', 'info'));
         }
         else
         {
@@ -297,10 +312,10 @@ class AdminUsersController extends AdminController {
                             No
                         @endif')
 
-        ->add_column('actions', '<a href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="iframe btn btn-xs btn-default">{{{ Lang::get(\'button.edit\') }}}</a>
+        ->add_column('actions', '<a target = "_blank" href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="btn btn-xs btn-default">{{{ Lang::get(\'button.edit\') }}}</a>
                                 @if($username == \'admin\')
                                 @else
-                                    <a href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
+                                    <a target = "_blank" href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
                                 @endif
             ')
 
