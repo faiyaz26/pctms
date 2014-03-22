@@ -96,8 +96,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 // Profile Show routes
 Route::get('/profile/{username}', 'ProfileController@show');
 Route::get('/test', function(){
-        $contest_ann = ContestAnnouncement::where('contest_datetime', '>', time())->get();
-        return $contest_ann;
+        $data['title'] = "sdsd";
+        return View::make('admin/users/create', $data);
 });
 // User reset routes
 Route::get('user/reset/{token}', 'UserController@getReset');

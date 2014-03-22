@@ -18,15 +18,14 @@ class CREATEUSERINFOTABLE extends Migration {
             $table->increments('id');
             $table->integer('user_id')->references('id')->on('users')
       		->onDelete('cascade')->unique();
-            $table->string('full_name');
-            $table->string('cf_handle')->default("");
-            $table->string('loj_handle')->default("");
-            $table->string('spoj_handle')->default("");
-            $table->string('uva_handle')->default('');
-            $table->string('cc_handle')->default("");
-            $table->string('sgu_handle')->default("");
-            $table->string('hustoj_handle')->default("");
-            $table->string('cm_handle')->default("");
+            $table->string('cf_handle')->default("")->nullable();
+            $table->string('loj_handle')->default("")->nullable();
+            $table->string('spoj_handle')->default("")->nullable();
+            $table->string('uva_handle')->default('')->nullable();
+            $table->string('cc_handle')->default("")->nullable();
+            $table->string('sgu_handle')->default("")->nullable();
+            $table->string('hustoj_handle')->default("")->nullable();
+            $table->string('cm_handle')->default("")->nullable();
             $table->timestamps();
         });
 

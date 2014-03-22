@@ -35,17 +35,25 @@
 	 - size: 16x16 or 32x32
 	 - transparency is OK
 	 - see wikipedia for info on browser support: http://mky.be/favicon/ -->
-	<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+	<link rel="shortcut icon" href="{{{ asset('ico/favicon.png') }}}">
 
 	<!-- iOS favicons. -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('ico/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('ico/apple-touch-icon-114-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('ico/apple-touch-icon-72-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('ico/apple-touch-icon-57-precomposed.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('ico/favicon.png') }}}">
 
 	<!-- CSS -->
-    {{ Basset::show('admin.css') }}
+    {{-- Basset::show('admin.css') --}}
 
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/less.compiled.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/wysihtml5/bootstrap-wysihtml5.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/wysihtml5/prettify.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.min.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/colorbox.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/datatables-bootstrap.css')}}" />
 	<style>
 	body {
 		padding: 60px 0;
@@ -145,8 +153,18 @@
 	<!-- ./ container -->
 
 	<!-- Javascripts -->
-    {{ Basset::show('admin.js') }}
-
+    {{-- Basset::show('admin.js') --}}
+    <script src = "{{asset('js/jquery_1.10.1.js')}}"> </script>
+	<script src = "{{asset('js/bootstrap/bootstrap.js')}}"> </script>
+	<script src = "{{asset('js/wysihtml5/bootstrap-wysihtml5.js')}}"> </script>
+	<script src = "{{asset('js/wysihtml5/wysihtml5-0.3.0.js')}}"> </script>
+	<script src = "{{asset('js/jquery.dataTables.min.js')}}"> </script>
+	<script src = "{{asset('js/datatables-bootstrap.js')}}"> </script>
+	<script src = "{{asset('js/datatables.fnReloadAjax.js')}}"> </script>
+	<script src = "{{asset('js/moment.js')}}"> </script>
+	<script src = "{{asset('js/bootstrap-datetimepicker.min.js')}}"> </script>
+	<script src = "{{asset('js/jquery.colorbox.js')}}"> </script>
+	<script src = "{{asset('js/prettify.js')}}"> </script>
     <script type="text/javascript">
     	$('.wysihtml5').wysihtml5();
         $(prettyPrint);

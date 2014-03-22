@@ -21,6 +21,8 @@ class AdminUsersController extends AdminController {
      */
     protected $permission;
 
+    protected $user_infos;
+
     /**
      * Inject the models.
      * @param User $user
@@ -77,6 +79,7 @@ class AdminUsersController extends AdminController {
 		// Mode
 		$mode = 'create';
 
+        return View::make('admin/users/create',compact('roles', 'title', 'selectedRoles'));
 		// Show the page
 		return View::make('admin/users/create_edit', compact('roles', 'permissions', 'selectedRoles', 'selectedPermissions', 'title', 'mode'));
     }
@@ -88,6 +91,7 @@ class AdminUsersController extends AdminController {
      */
     public function postCreate()
     {
+        $this->user->fullname = Input::get('fullname');
         $this->user->username = Input::get( 'username' );
         $this->user->email = Input::get( 'email' );
         $this->user->password = Input::get( 'password' );

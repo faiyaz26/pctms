@@ -20,8 +20,10 @@ a university or any other institution. It is kinda intra social network." />
 
 		<!-- CSS
 		================================================== -->
-        {{ Basset::show('public.css') }}
+        {{-- Basset::show('public.css') --}}
 
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/bootstrap.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/less.compiled.css')}}" />
 		<style>
 		@section('styles')
 		@show
@@ -34,11 +36,11 @@ a university or any other institution. It is kinda intra social network." />
 
 		<!-- Favicons
 		================================================== -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">
-		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
-		<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('ico/apple-touch-icon-144-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('ico/apple-touch-icon-114-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('ico/apple-touch-icon-72-precomposed.png') }}}">
+		<link rel="apple-touch-icon-precomposed" href="{{{ asset('ico/apple-touch-icon-57-precomposed.png') }}}">
+		<link rel="shortcut icon" href="{{{ asset('ico/favicon.png') }}}">
 	</head>
 
 	<body>
@@ -77,7 +79,7 @@ a university or any other institution. It is kinda intra social network." />
 			</div>
 		</div>
 		<!-- ./ navbar -->
-		<div style = "padding-top: 3%;">
+		<div style = "padding-top: 6%;">
 		</div>
 		<!-- Container -->
 		<div class="container">
@@ -188,6 +190,8 @@ a university or any other institution. It is kinda intra social network." />
 
 		<!-- Javascripts
 		================================================== -->
-        {{ Basset::show('public.js') }}
+		<script src = "{{asset('js/jquery_1.10.1.js')}}"> </script>
+		<script src = "{{asset('js/bootstrap/bootstrap.js')}}"> </script>
+        {{-- Basset::show('public.js') --}}
 	</body>
 </html>

@@ -10,19 +10,23 @@ class UserInfoTableSeeder extends Seeder {
         $users = array(
             array(
                 'user_id'      => '1',
-                'full_name'      => 'Admin',
                 'cf_handle' => 'admin', 
                 'spoj_handle' => 'admin', 
                 'cc_handle' => 'admin', 
-                'loj_handle' => 'admin'
+                'loj_handle' => 'admin',
+                'uva_handle' => 'admin',
+                'sgu_handle' => 'admin',
+                'hustoj_handle' => 'admin'
             ),
             array(
                 'user_id'      => '2',
-                'full_name'      => 'User',
-                'cf_handle' => 'user', 
-                'cm_handle' => 'user', 
-                'hustoj_handle' => 'user', 
-                'sgu_handle' => 'user'
+                'cf_handle' => 'admin', 
+                'spoj_handle' => 'admin', 
+                'cc_handle' => 'admin', 
+                'loj_handle' => 'admin',
+                'uva_handle' => 'admin',
+                'sgu_handle' => 'admin',
+                'hustoj_handle' => 'admin'
             )
         );
 

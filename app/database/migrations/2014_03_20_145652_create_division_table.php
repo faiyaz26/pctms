@@ -17,7 +17,7 @@ class CreateDivisionTable extends Migration {
         {
         	 $table->increments('id');
         	 $table->string('division_name');
-        	 $table->text('division_description');
+        	 $table->text('division_description')->nullable();
         	 $table->timestamps();
         });
 	}

@@ -10,6 +10,7 @@ class UsersTableSeeder extends Seeder {
         $users = array(
             array(
                 'id' => 1,
+                'fullname' => 'admin',
                 'username'      => 'admin',
                 'email'      => 'admin@example.org',
                 'password'   => Hash::make('admin'),
@@ -20,6 +21,7 @@ class UsersTableSeeder extends Seeder {
             ),
             array(
                 'id' => 2,
+                'fullname' => 'user',
                 'username'      => 'user',
                 'email'      => 'user@example.org',
                 'password'   => Hash::make('user'),

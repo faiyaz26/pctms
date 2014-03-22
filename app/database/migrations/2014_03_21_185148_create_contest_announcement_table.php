@@ -16,7 +16,7 @@ class CreateContestAnnouncementTable extends Migration {
 		Schema::create('contest_announcement', function($table){
 			$table->increments('id');
 			$table->string('contest_name');
-			$table->text('contest_description');
+			$table->text('contest_description')->nullable();
 			$table->datetime('contest_datetime');
 			$table->timestamps();
 		});
