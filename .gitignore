@@ -12,7 +12,7 @@
 /public/assets/compiled/admin
 
 # Composer
-composer.lock
+composer.phar
 
 # OS
 .DS_Store
