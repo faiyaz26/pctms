@@ -51,19 +51,19 @@
 		]
 	},
 	"scripts": {
-		 "post-install-cmd": [
-			"$_ artisan optimize"
-		],
-		"pre-update-cmd": [
-			"$_ artisan clear-compiled"
-		],
-		"post-update-cmd": [
-			"$_ artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"$_ artisan key:generate"
-		]
-	},
+        "post-install-cmd": [
+            "$_ artisan optimize"
+        ],
+        "pre-update-cmd": [
+            "$_ artisan clear-compiled"
+        ],
+        "post-update-cmd": [
+            "$_ artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "$_ artisan key:generate"
+        ]
+    },
 	"config": {
 		"preferred-install": "dist"
 	},
