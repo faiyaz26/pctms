@@ -164,7 +164,7 @@ a university or any other institution. It is kinda intra social network." />
 					@endif
 					<div class="panel panel-default">
 					  <div class="panel-heading">
-					    <h3 class="panel-title">Panel title</h3>
+					    <h3 class="panel-title">Find User</h3>
 					  </div>
 					  <div class="panel-body">
 					  	
@@ -192,6 +192,7 @@ a university or any other institution. It is kinda intra social network." />
 		================================================== -->
 		<script src = "{{asset('js/jquery_1.10.1.js')}}"> </script>
 		<script src = "{{asset('js/bootstrap/bootstrap.js')}}"> </script>
+		@yield('scripts')
         {{-- Basset::show('public.js') --}}
 	</body>
 </html>

@@ -32,6 +32,13 @@ class ProfileController extends BaseController {
 		$data['avatar'] = $email;
 
 
+		$d = DB::table('contests')->join('contest_summary', 'contests.id', '=', 'contest_summary.contest_id')
+		->where('contest_summary.username', '=', $username)->orderBy('contests.division_id', 'asc')->orderBy('contests.season_id','asc')->select();
+		
+
+		$data['summary'] = $d->get();
+		$data['sum'] = ContestSummary::where('username','=', $username)->sum('points');
+
 		return View::make('site/profile/profile', $data);
 	}
 
@@ -77,6 +84,7 @@ class ProfileController extends BaseController {
 
 
 		$contest_data = array();
+
 		$division = Division::all();
 		$season = Season::all();
 
@@ -85,14 +93,29 @@ class ProfileController extends BaseController {
 
 			foreach ($season as $s) {
 				$ret = Contest::where('division_id', '=', $div->id )->where('season_id', $s->id)->get();
-				if($ret){
-
+				if($ret->count()){
+					$d = ContestSummary::where('username', '=', $username)->get();
+					if($d->count()){
+						if(isset($sea[$s->season_id])==false){
+							$sea[$s->season_id] = array();
+						}
+						array_push($sea[$s->season_id], $d);
+					}
 				}
+			}
+			if(count($sea)){
+				if(isset($contest_data[$div->division_id])==false){
+							$contest_data[$div->division_id] = array();
+				}
+				array_push($contest_data[$div->division_id], $sea);
 			}
 		}
 
-		return $ret;
+		$r = array();
 
+		$d = DB::table('contests')->join('contest_summary', 'contests.id', '=', 'contest_summary.contest_id')
+		->where('contest_summary.username', '=', $username)->orderBy('contests.division_id', 'asc')->orderBy('contests.season_id','asc')->select();
+		return $d->where('season_id','=', '2')->get();
 	}
 
 

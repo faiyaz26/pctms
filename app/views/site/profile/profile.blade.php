@@ -6,6 +6,7 @@
 @parent
 @stop
 
+
 {{-- Content --}}
 @section('content')
 
@@ -16,14 +17,15 @@
       <li><a href="#">Blogs</a></li>
       <li><a href="{{URL::to('/profile/'.$username.'/contests')}}">Contests</a></li>
       <li><a href="{{URL::to('/settings')}}">Settings</a></li>
-    </ul>
-  </div>
-  <div class="panel-body">
+  </ul>
+</div>
+<div class="panel-body">
     <div class = "row">
         <div class="col-md-8">
             <h1>{{ $username }}</h1>
-            <h4>{{ $fullname }} </h4>
-            <table class="table">
+            <h6>{{ $fullname }} </h6>
+            <h3> Total Points: <span class="label label-info">{{$sum}}</span> </h3>
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th> OJ </th>
@@ -48,7 +50,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <p class="text-right">
-                    <img src="http://www.gravatar.com/avatar/{{$avatar}}?s=200" alt="" class="img-rounded img-responsive" />
+                        <img src="http://www.gravatar.com/avatar/{{$avatar}}?s=200" alt="" class="img-rounded img-responsive" />
                     </p>
                 </div>
             </div>
@@ -57,6 +59,43 @@
         </div>
 
     </div>
-</div>
-</div>
-@stop
+
+    <div class = "row">
+        <div class="col-md-12">
+            <div class = "panel panel-default">
+                <div class = "panel-body">
+                    <table class="highchart" data-graph-container-before="1" data-graph-type="column" style="display:none" data-graph-legend-disabled="1">
+                        <caption>Contest Performence</caption>
+                        <thead>
+                            <tr>                                  
+                                <th>Contest Name</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($summary as $s)
+                            <tr>
+                                <td> {{ $s->contest_name }}</td>
+                                <td> {{ $s->points }}</td>
+                                <tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @stop
+
+
+    @section('scripts')
+    <script src = "{{asset('js/highcharts.js')}}"> </script>
+    <script src = "{{asset('js/highcharttable.js')}}"> </script>
+    <script>
+    $(document).ready(function() {
+      $('table.highchart').highchartTable();
+  });
+    </script>
+    @stop
