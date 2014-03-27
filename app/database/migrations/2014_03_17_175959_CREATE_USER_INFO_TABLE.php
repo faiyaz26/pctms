@@ -27,6 +27,7 @@ class CREATEUSERINFOTABLE extends Migration {
             $table->string('hustoj_handle')->default("")->nullable();
             $table->string('cm_handle')->default("")->nullable();
             $table->string('tc_handle')->default("")->nullable();
+            $table->integer('division_id')->references('id')->on('divisions')->onDelete("set null")->default(null)->nullable();
             $table->timestamps();
         });
 

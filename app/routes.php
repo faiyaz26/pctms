@@ -80,7 +80,21 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('announcement/data', 'AdminContestAnnouncementController@data');
     Route::get('announcement/{announcement}/del', 'AdminContestAnnouncementController@delete');
     Route::resource('announcement', 'AdminContestAnnouncementController');
-    
+
+
+
+
+    #Season Management
+    Route::get('season/data', 'AdminSeasonController@data');
+    Route::get('season/{season}/del', 'AdminSeasonController@delete');
+    Route::resource('season', 'AdminSeasonController');
+
+
+    #Season Management
+    Route::get('contest/data', 'AdminContestController@data');
+    Route::get('contest/{contest}/del', 'AdminContestController@delete');
+    Route::resource('contest', 'AdminContestController');
+
     //Route::get('division', 'AdminDivisionController@index');
 
     # Admin Dashboard

@@ -8,6 +8,7 @@ class ProfileController extends BaseController {
 		//return $data->toArray();
 
 		$data['info'] = $info;
+		$data['fullname'] = $user->fullname;
 		$data['username']= $username;
 		$data['email']  = $user->email;
 

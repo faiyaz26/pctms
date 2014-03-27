@@ -13,7 +13,7 @@
     <div class = "row">
         <div class="col-md-8">
             <h1>{{ $username }}</h1>
-            <h4>{{ $info->full_name }} </h4>
+            <h4>{{ $fullname }} </h4>
             <table class="table">
                 <thead>
                     <tr>
