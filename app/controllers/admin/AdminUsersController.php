@@ -91,31 +91,32 @@ class AdminUsersController extends AdminController {
      */
     public function postCreate()
     {
-        $this->user->fullname = Input::get('fullname');
-        $this->user->username = Input::get( 'username' );
-        $this->user->email = Input::get( 'email' );
-        $this->user->password = Input::get( 'password' );
+        $user = new User;
+        $user->fullname = Input::get('fullname');
+        $user->username = Input::get( 'username' );
+        $user->email = Input::get( 'email' );
+        $user->password = Input::get( 'password' );
 
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
         // auto validation.
-        $this->user->password_confirmation = Input::get( 'password_confirmation' );
-        $this->user->confirmed = Input::get( 'confirm' );
+        $user->password_confirmation = Input::get( 'password_confirmation' );
+        $user->confirmed = Input::get( 'confirm' );
 
         // Permissions are currently tied to roles. Can't do this yet.
         //$user->permissions = $user->roles()->preparePermissionsForSave(Input::get( 'permissions' ));
 
         // Save if valid. Password field will be hashed before save
-        $this->user->save();
+        ;
 
-        if ( $this->user->id )
+        if ($user->save())
         {
             // Save roles. Handles updating.
-            $this->user->saveRoles(Input::get( 'roles' ));
+            $user->saveRoles(Input::get( 'roles' ));
 
             $info = new UserInfo;
 
-            $info->user_id = $this->user->id;
+            $info->user_id = $user->id;
             $info->cf_handle = Input::get('cf_handle');
             $info->cc_handle = Input::get('cc_handle');
             $info->cm_handle = Input::get('cm_handle');
@@ -129,12 +130,12 @@ class AdminUsersController extends AdminController {
             $info->save();
 
             // Redirect to the new user page
-            return Redirect::to('admin/users/' . $this->user->id . '/edit')->with('success', Lang::get('admin/users/messages.create.success'));
+            return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', Lang::get('admin/users/messages.create.success'));
         }
         else
         {
             // Get validation errors (see Ardent package)
-            $error = $this->user->errors()->all();
+            $error = $user->errors()->all();
 
             return Redirect::to('admin/users/create')
                 ->withInput(Input::except('password'))
@@ -187,59 +188,61 @@ class AdminUsersController extends AdminController {
      */
     public function postEdit($user)
     {
-        // Validate the inputs
-        $validator = Validator::make(Input::all(), $user->getUpdateRules());
 
+        $user->fullname = Input::get('fullname');
+        $user->username = Input::get( 'username' );
+        $user->email = Input::get( 'email' );
+        
 
-        if ($validator->passes())
-        {
-            $oldUser = clone $user;
-            $user->username = Input::get( 'username' );
-            $user->email = Input::get( 'email' );
-            $user->confirmed = Input::get( 'confirm' );
+        // The password confirmation will be removed from model
+        // before saving. This field will be used in Ardent's
+        // auto validation.
 
-            $password = Input::get( 'password' );
-            $passwordConfirmation = Input::get( 'password_confirmation' );
-
-            if(!empty($password)) {
-                if($password === $passwordConfirmation) {
-                    $user->password = $password;
-                    // The password confirmation will be removed from model
-                    // before saving. This field will be used in Ardent's
-                    // auto validation.
-                    $user->password_confirmation = $passwordConfirmation;
-                } else {
-                    // Redirect to the new user page
-                    return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.password_does_not_match'));
-                }
-            } else {
-                unset($user->password);
-                unset($user->password_confirmation);
-            }
-            
-            if($user->confirmed == null) {
-                $user->confirmed = $oldUser->confirmed;
-            }
-
-            $user->prepareRules($oldUser, $user);
-
-            // Save if valid. Password field will be hashed before save
-            $user->amend();
-
-            // Save roles. Handles updating.
-            $user->saveRoles(Input::get( 'roles' ));
-        } else {
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
+        if(Input::get('password')){
+            $user->password = Input::get( 'password' );
+            $user->password_confirmation = Input::get( 'password_confirmation' );
         }
 
-        // Get validation errors (see Ardent package)
-        $error = $user->errors()->all();
+        
+        $user->confirmed = Input::get( 'confirm' );
 
-        if(empty($error)) {
+        // Permissions are currently tied to roles. Can't do this yet.
+        //$user->permissions = $user->roles()->preparePermissionsForSave(Input::get( 'permissions' ));
+
+        // Save if valid. Password field will be hashed before save
+        
+
+        if ( $user->updateUniques() )
+        {
+            // Save roles. Handles updating.
+            $user->saveRoles(Input::get( 'roles' ));
+
+            $info = UserInfo::find($user->id);
+
+            $info->user_id = $user->id;
+            $info->cf_handle = Input::get('cf_handle');
+            $info->cc_handle = Input::get('cc_handle');
+            $info->cm_handle = Input::get('cm_handle');
+            $info->loj_handle = Input::get('loj_handle');
+            $info->uva_handle = Input::get('uva_handle');
+            $info->spoj_handle = Input::get('spoj_handle');
+            $info->hustoj_handle = Input::get('hustoj_handle');
+            $info->sgu_handle = Input::get('sgu_handle');
+            $info->tc_handle = Input::get('tc_handle');
+
+            $info->save();
+
             // Redirect to the new user page
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', Lang::get('admin/users/messages.edit.success'));
-        } else {
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('error', Lang::get('admin/users/messages.edit.error'));
+            return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', "User Updated successfully");
+        }
+        else
+        {
+            // Get validation errors (see Ardent package)
+            $error = $user->errors()->all();
+
+            return Redirect::to('admin/users/' . $user->id . '/edit')
+                ->withInput(Input::except('password'))
+                ->with( 'error', $error );
         }
     }
 
@@ -314,7 +317,7 @@ class AdminUsersController extends AdminController {
         ->add_column('actions', '<a target = "_blank" href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="btn btn-xs btn-default">{{{ Lang::get(\'button.edit\') }}}</a>
                                 @if($username == \'admin\')
                                 @else
-                                    <a target = "_blank" href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
+                                    <a href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
                                 @endif
             ')
 

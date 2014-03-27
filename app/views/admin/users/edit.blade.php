@@ -2,6 +2,16 @@
 
 {{-- Content --}}
 @section('content')
+	@if ($errors->all())
+		<div class="alert alert-danger">
+			{{  HTML::ul($errors->all()) }}
+		</div>
+	@endif
+	@if (isset($success))
+		<div class = "alert alert-success">
+			{{$success}}
+		</div>
+	@endif
 {{Form::open(array('url' => 'admin/users/'.$user->id."/edit", 'method' =>'POST' , 'class' => "form-horizontal"))}}
 <!-- Tab panes -->
 <div class="panel panel-default">

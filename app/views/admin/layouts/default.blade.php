@@ -103,8 +103,21 @@
     					<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><span class="glyphicon glyphicon-home"></span> Dashboard </a></li>
     					<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><span class="glyphicon glyphicon-list-alt"></span> Blog</a></li>
     					<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Comments</a></li>
-    					<li{{ (Request::is('admin/division*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/division') }}}"><span class="glyphicon glyphicon-th"></span> Division</a></li>
-    					<li{{ (Request::is('admin/announcement*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/announcement') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Contest Announcements</a></li>
+    					<li class="dropdown">
+    					<li class="dropdown">
+    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/contest') }}}">
+    							<span class="glyphicon glyphicon-user"></span> Contest Related <span class="caret"></span>
+    						</a>
+    						<ul class="dropdown-menu">
+    							<li{{ (Request::is('admin/contest*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/contest') }}}"><span class="glyphicon glyphicon-user"></span>Contests</a></li>
+    							<li{{ (Request::is('admin/season*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/season') }}}"><span class="glyphicon glyphicon-tasks"></span> Season Management</a></li>
+    							<li{{ (Request::is('admin/division*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/division') }}}"><span class="glyphicon glyphicon-th"></span> Division Management</a></li>
+    							<li{{ (Request::is('admin/announcement*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/announcement') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Contest Announcements</a></li>
+    						</ul>
+    					</li>
+
+
+
     					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
     					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
     						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">

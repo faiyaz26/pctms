@@ -4,13 +4,13 @@
 @section('content')
 	@if (isset($success))
 		<div class="alert alert-success">
-			{{{$success}}}
+			<h2> {{$success}} </h2>
 		</div>
 	@endif
 	@if (isset($error))
 		<div class="alert alert-error">
-			{{{$error}}}
+			<h2> {{$error}} </h2>
 		</div>
 	@endif
-	<button class="btn-cancel close_popup">Close</button>
+	<button class="btn btn-warning close_popup">Close</button>
 @stop

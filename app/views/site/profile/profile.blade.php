@@ -8,7 +8,16 @@
 
 {{-- Content --}}
 @section('content')
+
 <div class="panel panel-default">
+  <div class="panel-header">
+    <ul class="nav nav-pills">
+      <li class="active"><a href="{{URL::to('/profile')}}">Profile</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="{{URL::to('/profile/'.$username.'/contests')}}">Contests</a></li>
+      <li><a href="{{URL::to('/settings')}}">Settings</a></li>
+    </ul>
+  </div>
   <div class="panel-body">
     <div class = "row">
         <div class="col-md-8">

@@ -35,6 +35,9 @@
 			<label class="col-sm-2 control-label" for="contest_name">Contest Standing URL</label>
 			<div class="col-sm-8">
 				{{form::text('contest_standing_url', null, array('class' => "form-control"))}}
+				<p class="text-danger">
+						Dont' Use HTTPS, start the url with http://
+				</p>
 			</div>
 		</div>
 		<div class="form-group">
@@ -51,6 +54,7 @@
 						<option value="{{{ $dv->id }}}">{{{ $dv->division_name }}}</option>
 					@endforeach
 				</select>
+				<a href = "{{URL::to('admin/division/create')}}"> Create Division </a>
 			</div>
 		</div>
 		<div class="form-group">
@@ -61,6 +65,9 @@
 						<option value="{{{ $s->id }}}">{{{ $s->season_name }}}</option>
 					@endforeach
 				</select>
+				<span>
+					<a href = "{{URL::to('admin/season/create')}}"> Create Season </a>
+				</span>
 			</div>
 		</div>
 		

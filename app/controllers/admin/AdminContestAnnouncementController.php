@@ -113,7 +113,23 @@ class AdminContestAnnouncementController extends AdminController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$con = ContestAnnouncement::find($id);
+		$name = $con->contest_name;
+		$data ['title'] = "Message";
+		if($con->delete()){
+			$data['success'] = "Contest Announcement Named <strong>".$name."</strong> is Deleted";
+		}else{
+			$data['error'] = $name." is not Deleted, Some Error Occured. Please Try Again";
+		}
+		return View::make('admin/message', $data);
+	}
+
+
+	public function delete($id){
+		$contest = ContestAnnouncement::find($id);
+		$data['contest'] = $contest;
+		$data['title']  = "Contest";
+		return View::make('admin/announcement/delete', $data);
 	}
 
 

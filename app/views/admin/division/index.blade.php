@@ -9,8 +9,7 @@
 @section('content')
 	<div class="page-header">
 		<h3>
-			Role Management
-
+			Division Management
 			<div class="pull-right">
 				<a href="{{{ URL::to('admin/division/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
 			</div>

@@ -9,10 +9,10 @@
 @section('content')
 	<div class="page-header">
 		<h3>
-			Role Management
+			Contest Management
 
 			<div class="pull-right">
-				<a href="{{{ URL::to('admin/contest/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+				<a href="{{{ URL::to('admin/contest/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Add </a>
 			</div>
 		</h3>
 	</div>
@@ -22,6 +22,7 @@
 			<tr>
 				<th class="col-md-2"> Contest Name</th>
 				<th class="col-md-4"> Contest Description </th>
+				<th class = "col-md-2"> Contest Date </th>
 				<th class="col-md-2"> Actions </th>
 			</tr>
 		</thead>

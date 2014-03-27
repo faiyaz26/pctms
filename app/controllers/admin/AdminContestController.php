@@ -53,31 +53,23 @@ class AdminContestController extends AdminController {
 
 		if($contest->save()){
 			if($this->parser($contest)== true){
-				$contest->delete();
-				return "OK";
+				$data ['title'] = "Message";
+				$data ['success']  = "Contest Added";
+				return View::make('admin/message', $data);
 			}else{
 				$contest->delete();
-				return "Error";
+				$data ['title'] = "Message";
+				$data ['error']  = "Contest not Added, Error Occured";
+				return View::make('admin/message', $data);
 			}
 		}else{
 			$error = $contest->errors()->all();
 			return Redirect::to('admin/contest/create')
-                    ->withInput(Input::all())
-                    ->with( 'error', $error );
+			->withInput(Input::all())
+			->with( 'error', $error );
 		}
-		/*
-		if($contest->save()){
-			$data['title'] = "Contest Announcement";
-			$data['contest'] = $contest;
-			$data['success'] = "Contest Announcement Entry Added";
-			return View::make('admin/contest/edit', $data);
-		}else{
-			$error = $div->errors()->all();
-			return Redirect::to('admin/contest/create')
-                    ->withInput(Input::all())
-                    ->with( 'error', $error );
-		} */
-	} 
+		
+} 
 
 
 	/**
@@ -89,8 +81,26 @@ class AdminContestController extends AdminController {
 	public function show($id)
 	{
 		//
+		$contest= Contest::find($id);
+		$div = Division::find($contest->division_id);
+		$season = Season::find($contest->season_id);
+		$data ['title'] =  "Contest";
+		$data ['contest'] = $contest;
+		$data ['division']  = $div;
+		$data ['season'] = $season;
+
+		return View::make('admin/contest/show', $data);
 	}
 
+
+
+
+	public function delete($id){
+		$contest = Contest::find($id);
+		$data['contest'] = $contest;
+		$data['title']  = "Contest";
+		return View::make('admin/contest/delete', $data);
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -100,7 +110,16 @@ class AdminContestController extends AdminController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$con = Contest::find($id);
+		$data ['title'] = "Message";
+		$tmp = $con;
+		if($con->delete()){
+			DB::table('contest_summary')->where('contest_id', '=', $id)->delete();
+			$data['success'] = "Contest Named ".$tmp->contest_name." is Deleted";
+		}else{
+			$data['error'] = "Contest: ".$tmp->contest_name." is not Deleted, Some Error Occured. Please Try Again";		
+		}
+		return View::make('admin/message', $data);
 	}
 
 	public function parser(Contest $contest){
@@ -129,7 +148,7 @@ class AdminContestController extends AdminController {
 			$d = array();
 			$d['pos'] = $row->find('td', 0)->plaintext;
 			
-
+			
 			$name = $row->find('td', 1)->plaintext;
 			$names = explode('[', $name);
 			$names = explode(']',$names[count($names)-1]);
@@ -148,17 +167,35 @@ class AdminContestController extends AdminController {
 			//dd($d);
 			array_push($data, $d);
 		}
+
+		foreach ($data as $d) {
+			$summary = new ContestSummary;
+			$summary->contest_id = $contest->id;
+			$summary->username = $d['username'];
+			$summary->solved = $d['solved'];
+			$summary->attempt = $d['attempt'];
+			$summary->position = $d['pos'];
+			$v = $summary->attempt;
+			if($v > 0) $v = 1;
+			$pnt = Setting::get('points.'.$d['pos']);
+			if($pnt == "[]" || $pnt==null){
+				$pnt = 0;
+			}
+			$summary->points = $v * $pnt;
+
+			$summary->save();
+		}
 		return true;
 	}
 
 	public function data(){
 		$contests = Contest::select(array('contests.id', 'contests.contest_name', 'contests.contest_description', 'contests.contest_date'));
 		return Datatables::of($contests)
-		->add_column('actions', '<a href="{{{ URL::to(\'admin/contest/\' . $id . \'/edit\' ) }}}" class="iframe btn btn-xs btn-default">{{{ Lang::get(\'button.edit\') }}}</a>
-                                <a href="{{{ URL::to(\'admin/contest/\' . $id . \'/del\' ) }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
-                    ')
+		->add_column('actions', '<a href="{{{ URL::to(\'admin/contest/\' . $id  ) }}}" class="iframe btn btn-xs btn-default">Show</a>
+			<a href="{{{ URL::to(\'admin/contest/\' . $id . \'/del\' ) }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.delete\') }}}</a>
+			')
 
-        ->remove_column('id')
-        ->make();
+		->remove_column('id')
+		->make();
 	}
 }

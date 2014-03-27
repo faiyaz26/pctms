@@ -59,7 +59,7 @@ a university or any other institution. It is kinda intra social network." />
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
+						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a class="navbar-brand" href="{{{ URL::to('') }}}">{{Setting::get('site_name') }}</a></li>
 					</ul>
 
                     <ul class="nav navbar-nav pull-right">
@@ -105,7 +105,7 @@ a university or any other institution. It is kinda intra social network." />
 							  	  		<li> <a href = "{{URL::to('profile/'.Auth::user()->username)}}"> Profile </a> </li>
 							  	  		<li> Blogs </li>
 							  	  		<li> Contests </li>
-							  	  		<li> Settings </li>
+							  	  		<li> <a href = "{{URL::to('/settings')}}"> Settings </a> </li>
 							  	  		<li> <a href = "{{URL::to('user/logout')}}"> Logout </a> </li>
 							  	  	</ul>
 						  	  	</p>

@@ -13,7 +13,6 @@ class ConfideSetupUsersTable extends Migration {
         // Creates the users table
         Schema::create('users', function($table)
         {
-            $table->engine = 'InnoDB';
             $table->increments('id')->onDelete('cascade');
             $table->string('fullname')->nullable();
             $table->string('username');
@@ -28,7 +27,6 @@ class ConfideSetupUsersTable extends Migration {
         // Creates password reminders table
         Schema::create('password_reminders', function($table)
         {
-            $table->engine = 'InnoDB';
             $table->string('email');
             $table->string('token');
             $table->timestamp('created_at');

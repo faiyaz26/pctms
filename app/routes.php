@@ -108,10 +108,23 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
  */
 
 // Profile Show routes
-Route::get('/profile/{username}', 'ProfileController@show');
+Route::get('/settings', 'ProfileController@getSettings');
+Route::post('/settings', 'ProfileController@postSettings');
+Route::get('/profile/{username?}', 'ProfileController@show');
+
+Route::get('/profile/{username}/test2', 'ProfileController@test2');
+
+
+Route::get('profile/{username}/contests', 'ProfileController@contest');
+
 Route::get('/test', function(){
-        $data['title'] = "sdsd";
-        return View::make('admin/users/create', $data);
+    Setting::set('points', array('1' => 20, '2' => 15, '3' => 12., '4' => 10, '5' => 8, '6' => 6, '7' => 4, '8' => 3, '9'=> 2, '10' => 1));
+     $p = 1;
+     $pnt = Setting::get('ponts'.$p);
+     if($pnt == "[]" || $pnt==null){
+        return 0;
+     }
+     return $pnt;
 });
 // User reset routes
 Route::get('user/reset/{token}', 'UserController@getReset');

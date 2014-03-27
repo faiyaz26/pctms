@@ -2,7 +2,7 @@
 
 {{-- Content --}}
 @section('content')
-	<h2> Edit Division </h2>
+	<h2> Edit Contest </h2>
 	@if ($errors->all())
 		<div class="alert alert-danger">
 			{{  HTML::ul($errors->all()) }}

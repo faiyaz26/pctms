@@ -8,4 +8,8 @@ class Contest extends Ardent {
 		'contest_date' => 'required|date_format:Y-m-d',
 		'contest_standing_url' => 'required'
 	);
+
+	public function summary(){
+		return $this->hasMany('ContestSummary');
+	}
 }
