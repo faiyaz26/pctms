@@ -104,7 +104,7 @@ a university or any other institution. It is kinda intra social network." />
 							  	  	<ul>
 							  	  		<li> <a href = "{{URL::to('profile/'.Auth::user()->username)}}"> Profile </a> </li>
 							  	  		<li> Blogs </li>
-							  	  		<li> Contests </li>
+							  	  		<li> <a href = "{{URL::to('profile/'.Auth::user()->username).'/contests'}}"> Contests </li>
 							  	  		<li> <a href = "{{URL::to('/settings')}}"> Settings </a> </li>
 							  	  		<li> <a href = "{{URL::to('user/logout')}}"> Logout </a> </li>
 							  	  	</ul>

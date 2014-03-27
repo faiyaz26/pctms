@@ -169,7 +169,9 @@ class ProfileController extends BaseController {
 
 
 	public function contest($username){
-		$contest_data = ContestSummary::where('username' , $username)->get();
+		$contest_data = DB::table('contest_summary')->join('contests', 'contest_summary.contest_id', '=', 'contests.id')->where('contest_summary.username', '=', $username)->orderBy('contests.contest_date','desc')->select()->get();
+		
+		//return $contest_data;
 		$data['contest_data'] = $contest_data;
 		$data['title'] = "Contest Record of ".$username;
 		$data['username'] = $username;

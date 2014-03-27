@@ -19,6 +19,7 @@
             <table class="table table-hover table-striped table-bordered">
                 <thead>
                     <tr>
+                        <th> <p class="text-center">#</p> </th>
                         <th> <p class="text-center">Contest Name </p></th>
                         <th> <p class="text-center">Contest Date </p></th>
                         <th> <p class="text-center">Rank </p></th>
@@ -27,11 +28,13 @@
                         <th> <p class="text-center">Attempted </p></th>
                     </tr>
                 </thead>
+                <?php $i = 0; ?>
                 <tbody>
                     @foreach ($contest_data as $data)
                         <tr>
-                            <td> <p class="text-center"> {{$data->contest->contest_name}} </p></td>
-                            <td> <p class="text-center"> {{$data->contest->contest_date}} </p></td>
+                            <td> <p class="text-center"> {{++$i}} </p> </td>
+                            <td> <p class="text-center"> {{$data->contest_name}} </p></td>
+                            <td> <p class="text-center"> {{$data->contest_date}} </p></td>
                             <td> <p class="text-center"> {{$data->position}} </p></td>
                             <td> <p class="text-center"> {{$data->points}} </p></td>
                             <td> <p class="text-center"> {{$data->solved}} </p></td>
