@@ -3,11 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-<<<<<<< HEAD
-    "hash": "5c9a7603fbd0586b9676668f28038acc",
-=======
-    "hash": "3c1e25eacfa7e78006c22e2783fb69ca",
->>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
+    "hash": "205a280f90092d35f467b88eb0cb962d",
     "packages": [
         {
             "name": "anlutro/curl",
@@ -54,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bllim/laravel4-datatables-package.git",
-                "reference": "a1f3c41203c205f7108a56771880cceb284458c5"
+                "reference": "31ecafc9cf27a0f90d32f5aec5d3afe80bddadc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bllim/laravel4-datatables-package/zipball/a1f3c41203c205f7108a56771880cceb284458c5",
-                "reference": "a1f3c41203c205f7108a56771880cceb284458c5",
+                "url": "https://api.github.com/repos/bllim/laravel4-datatables-package/zipball/31ecafc9cf27a0f90d32f5aec5d3afe80bddadc6",
+                "reference": "31ecafc9cf27a0f90d32f5aec5d3afe80bddadc6",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +97,7 @@
                 "laravel",
                 "laravel4"
             ],
-            "time": "2014-03-20 12:07:11"
+            "time": "2014-03-25 14:55:48"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -185,74 +181,6 @@
             "time": "2014-01-17 12:21:18"
         },
         {
-<<<<<<< HEAD
-            "name": "etrepat/basset",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/etrepat/basset.git",
-                "reference": "0966b7f5221c56d1f78ebe82660632c323d0c004"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/etrepat/basset/zipball/0966b7f5221c56d1f78ebe82660632c323d0c004",
-                "reference": "0966b7f5221c56d1f78ebe82660632c323d0c004",
-                "shasum": ""
-            },
-            "require": {
-                "kriswallsmith/assetic": "1.1.*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "illuminate/config": "4.1.*",
-                "illuminate/console": "4.1.*",
-                "illuminate/filesystem": "4.1.*",
-                "illuminate/log": "4.1.*",
-                "illuminate/routing": "4.1.*",
-                "illuminate/support": "4.1.*",
-                "mockery/mockery": ">=0.7.2",
-                "symfony/process": "2.4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Basset": "src/"
-                },
-                "classmap": [
-                    "tests/Cases/FilterTestCase.php"
-                ],
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Jason Lewis",
-                    "email": "jason.lewis1991@gmail.com",
-                    "homepage": "http://jasonlewis.me",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Estanislau Trepat",
-                    "email": "estanis@etrepat.com",
-                    "homepage": "http://etrepat.com"
-                }
-            ],
-            "description": "A better asset management package for Laravel.",
-            "keywords": [
-                "assets",
-                "basset",
-                "laravel"
-            ],
-            "time": "2014-02-25 12:05:15"
-        },
-        {
-=======
->>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
             "name": "filp/whoops",
             "version": "1.0.10",
             "source": {
@@ -378,78 +306,6 @@
             "time": "2013-04-03 18:44:02"
         },
         {
-<<<<<<< HEAD
-=======
-            "name": "jasonlewis/basset",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jasonlewis/basset.git",
-                "reference": "79b94c3edef5015a34e3a0f834586358a6f99885"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jasonlewis/basset/zipball/79b94c3edef5015a34e3a0f834586358a6f99885",
-                "reference": "79b94c3edef5015a34e3a0f834586358a6f99885",
-                "shasum": ""
-            },
-            "require": {
-                "kriswallsmith/assetic": "1.1.*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "illuminate/config": "4.0.*",
-                "illuminate/console": "4.0.*",
-                "illuminate/filesystem": "4.0.*",
-                "illuminate/log": "4.0.*",
-                "illuminate/routing": "4.0.*",
-                "illuminate/support": "4.0.*",
-                "mockery/mockery": ">=0.7.2",
-                "symfony/process": "2.3.*"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Deploy static assets directly to your S3 buckets.",
-                "rackspace/php-cloudfiles": "Deploy static assets directly to your Cloud Files container."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Basset": "src/"
-                },
-                "classmap": [
-                    "tests/Cases/FilterTestCase.php"
-                ],
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Jason Lewis",
-                    "email": "jason.lewis1991@gmail.com",
-                    "homepage": "http://jasonlewis.me",
-                    "role": "Creator"
-                }
-            ],
-            "description": "A better asset management package for Laravel.",
-            "keywords": [
-                "assets",
-                "basset",
-                "laravel"
-            ],
-            "time": "2013-11-06 08:17:47"
-        },
-        {
->>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
             "name": "jeremeamia/SuperClosure",
             "version": "1.0.1",
             "source": {
@@ -498,88 +354,17 @@
             "time": "2013-10-09 04:20:00"
         },
         {
-            "name": "kriswallsmith/assetic",
-            "version": "1.1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "1d671c54f147ece319642132330927672b6190a7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/1d671c54f147ece319642132330927672b6190a7",
-                "reference": "1d671c54f147ece319642132330927672b6190a7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1",
-                "symfony/process": "~2.1"
-            },
-            "require-dev": {
-                "cssmin/cssmin": "*",
-                "joliclic/javascript-packer": "*",
-                "kamicane/packager": "*",
-                "leafo/lessphp": "*",
-                "leafo/scssphp": "*",
-                "leafo/scssphp-compass": "*",
-                "mrclay/minify": "*",
-                "phpunit/phpunit": "~3.7",
-                "ptachoire/cssembed": "*",
-                "twig/twig": "~1.6"
-            },
-            "suggest": {
-                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
-                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
-                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
-                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
-                "twig/twig": "Assetic provides the integration with the Twig templating engine"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Assetic": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kris Wallsmith",
-                    "email": "kris.wallsmith@gmail.com",
-                    "homepage": "http://kriswallsmith.net/"
-                }
-            ],
-            "description": "Asset Management for PHP",
-            "homepage": "https://github.com/kriswallsmith/assetic",
-            "keywords": [
-                "assets",
-                "compression",
-                "minification"
-            ],
-            "time": "2013-09-03 12:44:05"
-        },
-        {
             "name": "laravel/framework",
             "version": "4.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9948ff88c494345384da83ea083db3455f6fb831"
+                "reference": "568861eb110cd1b6abbbdb355a4ca7b64ad20a09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9948ff88c494345384da83ea083db3455f6fb831",
-                "reference": "9948ff88c494345384da83ea083db3455f6fb831",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/568861eb110cd1b6abbbdb355a4ca7b64ad20a09",
+                "reference": "568861eb110cd1b6abbbdb355a4ca7b64ad20a09",
                 "shasum": ""
             },
             "require": {
@@ -638,7 +423,7 @@
                 "illuminate/workbench": "self.version"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "2.5.*",
+                "aws/aws-sdk-php": "2.6.*",
                 "iron-io/iron_mq": "1.5.*",
                 "mockery/mockery": "0.9.*",
                 "pda/pheanstalk": "2.1.*",
@@ -683,7 +468,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-03-21 03:18:46"
+            "time": "2014-03-27 01:25:24"
         },
         {
             "name": "laravelbook/ardent",
@@ -754,12 +539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "db7e2aa311869aaf3c2cc76237b2beff05322629"
+                "reference": "4cf49e5496857532f4ca4bbb69d1eee591b88234"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/db7e2aa311869aaf3c2cc76237b2beff05322629",
-                "reference": "db7e2aa311869aaf3c2cc76237b2beff05322629",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4cf49e5496857532f4ca4bbb69d1eee591b88234",
+                "reference": "4cf49e5496857532f4ca4bbb69d1eee591b88234",
                 "shasum": ""
             },
             "require": {
@@ -787,7 +572,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.8.x-dev"
                 }
             },
             "autoload": {
@@ -814,7 +599,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-03-14 09:32:58"
+            "time": "2014-03-26 11:12:35"
         },
         {
             "name": "nesbot/carbon",
@@ -909,16 +694,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.20",
+            "version": "v1.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "aea0de833cba7cf2c25239be71f2787edaee36d5"
+                "reference": "f45ba8bc7962b7356847724989a6949b68d975a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/aea0de833cba7cf2c25239be71f2787edaee36d5",
-                "reference": "aea0de833cba7cf2c25239be71f2787edaee36d5",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/f45ba8bc7962b7356847724989a6949b68d975a2",
+                "reference": "f45ba8bc7962b7356847724989a6949b68d975a2",
                 "shasum": ""
             },
             "require": {
@@ -956,7 +741,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-03-01 20:01:07"
+            "time": "2014-03-26 10:52:02"
         },
         {
             "name": "philf/setting",
@@ -1103,12 +888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "809f76a7b3fd0e510a29753528e954a33fa597db"
+                "reference": "83df2ef11c18ea490daf6a7a8789315f57f555a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/809f76a7b3fd0e510a29753528e954a33fa597db",
-                "reference": "809f76a7b3fd0e510a29753528e954a33fa597db",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/83df2ef11c18ea490daf6a7a8789315f57f555a8",
+                "reference": "83df2ef11c18ea490daf6a7a8789315f57f555a8",
                 "shasum": ""
             },
             "require": {
@@ -1142,7 +927,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-02-11 18:10:09"
+            "time": "2014-03-25 14:02:22"
         },
         {
             "name": "psr/log",
@@ -1346,12 +1131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/BrowserKit.git",
-                "reference": "a2b2aff53640fd2fa34b7c176f46d8ff392a785d"
+                "reference": "1f5e42db799e05e85d03fe8504c5b1c92c46968d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/a2b2aff53640fd2fa34b7c176f46d8ff392a785d",
-                "reference": "a2b2aff53640fd2fa34b7c176f46d8ff392a785d",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/1f5e42db799e05e85d03fe8504c5b1c92c46968d",
+                "reference": "1f5e42db799e05e85d03fe8504c5b1c92c46968d",
                 "shasum": ""
             },
             "require": {
@@ -1394,7 +1179,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-12 18:29:58"
+            "time": "2014-03-27 14:53:17"
         },
         {
             "name": "symfony/console",
@@ -1458,12 +1243,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "76ce933792a3b4fcb8ea9b017081327c2dc3c65b"
+                "reference": "c0ca90adac5b581dbd346df23c3e3355ac823238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/76ce933792a3b4fcb8ea9b017081327c2dc3c65b",
-                "reference": "76ce933792a3b4fcb8ea9b017081327c2dc3c65b",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/c0ca90adac5b581dbd346df23c3e3355ac823238",
+                "reference": "c0ca90adac5b581dbd346df23c3e3355ac823238",
                 "shasum": ""
             },
             "require": {
@@ -1502,7 +1287,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-01 17:35:04"
+            "time": "2014-03-26 11:35:33"
         },
         {
             "name": "symfony/debug",
@@ -1511,12 +1296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
-                "reference": "412b76458b60a645a9daacdd49f57d704c84c4d4"
+                "reference": "cf012d37f7e0d059fd6b35607e99761b33ccf4ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/412b76458b60a645a9daacdd49f57d704c84c4d4",
-                "reference": "412b76458b60a645a9daacdd49f57d704c84c4d4",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/cf012d37f7e0d059fd6b35607e99761b33ccf4ed",
+                "reference": "cf012d37f7e0d059fd6b35607e99761b33ccf4ed",
                 "shasum": ""
             },
             "require": {
@@ -1559,7 +1344,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-01 17:35:04"
+            "time": "2014-03-26 18:07:42"
         },
         {
             "name": "symfony/dom-crawler",
@@ -1568,12 +1353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "4bebef4fd60f15e3fc58f684550beae1f9162f30"
+                "reference": "53667cc8b0334db049e388a2855a1a4732ab891c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/4bebef4fd60f15e3fc58f684550beae1f9162f30",
-                "reference": "4bebef4fd60f15e3fc58f684550beae1f9162f30",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/53667cc8b0334db049e388a2855a1a4732ab891c",
+                "reference": "53667cc8b0334db049e388a2855a1a4732ab891c",
                 "shasum": ""
             },
             "require": {
@@ -1614,7 +1399,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-01 17:35:04"
+            "time": "2014-03-26 12:00:53"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1681,12 +1466,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "e81f1b30eb9748c3f8e0de3a92ea210845cff0a9"
+                "reference": "fe66eed49c7bbfc312978ef0f86e490127a345b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/e81f1b30eb9748c3f8e0de3a92ea210845cff0a9",
-                "reference": "e81f1b30eb9748c3f8e0de3a92ea210845cff0a9",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/fe66eed49c7bbfc312978ef0f86e490127a345b2",
+                "reference": "fe66eed49c7bbfc312978ef0f86e490127a345b2",
                 "shasum": ""
             },
             "require": {
@@ -1721,7 +1506,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:29:57"
+            "time": "2014-03-26 12:01:00"
         },
         {
             "name": "symfony/finder",
@@ -1779,12 +1564,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "d23d6f965e707ac1bd5c7a8d3f214e95bb7e9315"
+                "reference": "11ad7352c7bfa12145a0df8e1c4c303c585ce169"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/d23d6f965e707ac1bd5c7a8d3f214e95bb7e9315",
-                "reference": "d23d6f965e707ac1bd5c7a8d3f214e95bb7e9315",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/11ad7352c7bfa12145a0df8e1c4c303c585ce169",
+                "reference": "11ad7352c7bfa12145a0df8e1c4c303c585ce169",
                 "shasum": ""
             },
             "require": {
@@ -1825,7 +1610,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-13 16:54:12"
+            "time": "2014-03-26 11:35:33"
         },
         {
             "name": "symfony/http-kernel",
@@ -1834,12 +1619,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "635e262ce02bf3e562163328ba674aef632a286e"
+                "reference": "7cfb85005383ba5b0a11154b1de5d4b5e8a8e40b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/635e262ce02bf3e562163328ba674aef632a286e",
-                "reference": "635e262ce02bf3e562163328ba674aef632a286e",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/7cfb85005383ba5b0a11154b1de5d4b5e8a8e40b",
+                "reference": "7cfb85005383ba5b0a11154b1de5d4b5e8a8e40b",
                 "shasum": ""
             },
             "require": {
@@ -1898,7 +1683,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-12 18:29:58"
+            "time": "2014-03-27 14:53:17"
         },
         {
             "name": "symfony/process",
@@ -1907,12 +1692,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "fa18e426ad43ba9409fbb4b3668cce4dfdb64c83"
+                "reference": "c09c3b08455c35688eee3e481fdfc85518ef01d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/fa18e426ad43ba9409fbb4b3668cce4dfdb64c83",
-                "reference": "fa18e426ad43ba9409fbb4b3668cce4dfdb64c83",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/c09c3b08455c35688eee3e481fdfc85518ef01d7",
+                "reference": "c09c3b08455c35688eee3e481fdfc85518ef01d7",
                 "shasum": ""
             },
             "require": {
@@ -1947,7 +1732,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-13 05:40:32"
+            "time": "2014-03-26 11:35:33"
         },
         {
             "name": "symfony/routing",
@@ -2461,12 +2246,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "36c4eee5051629524389da376ba270f15765e49f"
+                "reference": "bb9b55b17bed5923c9446c8158a92623d39480c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/36c4eee5051629524389da376ba270f15765e49f",
-                "reference": "36c4eee5051629524389da376ba270f15765e49f",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/bb9b55b17bed5923c9446c8158a92623d39480c6",
+                "reference": "bb9b55b17bed5923c9446c8158a92623d39480c6",
                 "shasum": ""
             },
             "require": {
@@ -2527,7 +2312,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-12-18 17:21:03"
+            "time": "2014-03-27 11:06:41"
         },
         {
             "name": "doctrine/collections",
@@ -2678,12 +2463,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "c61361d8fcf65a977d8610ba78eb542a1d2f44b4"
+                "reference": "7c68e80f76c992b04c8d1e857cf5249bdc64eec3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c61361d8fcf65a977d8610ba78eb542a1d2f44b4",
-                "reference": "c61361d8fcf65a977d8610ba78eb542a1d2f44b4",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7c68e80f76c992b04c8d1e857cf5249bdc64eec3",
+                "reference": "7c68e80f76c992b04c8d1e857cf5249bdc64eec3",
                 "shasum": ""
             },
             "require": {
@@ -2741,7 +2526,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-03-06 06:53:43"
+            "time": "2014-03-25 09:18:54"
         },
         {
             "name": "doctrine/inflector",
@@ -2868,47 +2653,6 @@
                 "parser"
             ],
             "time": "2013-12-20 21:39:00"
-        },
-        {
-            "name": "leafo/lessphp",
-            "version": "v0.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leafo/lessphp.git",
-                "reference": "51f3f06f0fe78a722dabfd14578444bdd078d9de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/51f3f06f0fe78a722dabfd14578444bdd078d9de",
-                "reference": "51f3f06f0fe78a722dabfd14578444bdd078d9de",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lessc.inc.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Leaf Corcoran",
-                    "email": "leafot@gmail.com",
-                    "homepage": "http://leafo.net"
-                }
-            ],
-            "description": "lessphp is a compiler for LESS written in PHP.",
-            "homepage": "http://leafo.net/lessphp/",
-            "time": "2013-08-09 17:09:19"
         },
         {
             "name": "lmammino/jsmin4assetic",
@@ -3269,11 +3013,6 @@
     "stability-flags": {
         "zizaco/confide": 20,
         "zizaco/entrust": 20,
-<<<<<<< HEAD
-        "etrepat/basset": 20,
-=======
-        "jasonlewis/basset": 20,
->>>>>>> f4580ae6b0c8abc7840b290d660f3444fe0f0e35
         "j20/php-uuid": 20,
         "anlutro/curl": 20,
         "yangqi/htmldom": 20,

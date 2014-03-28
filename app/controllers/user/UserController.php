@@ -68,6 +68,9 @@ class UserController extends BaseController {
         if ($this->user->id )
         {
             // Redirect with success message, You may replace "Lang::get(..." for your custom message.
+            $info = new UserInfo;
+            $info->user_id = $this->user->id;
+            $info->save();
             return Redirect::to('user/login')
                 ->with( 'notice', Lang::get('user/user.user_account_created') );
         }

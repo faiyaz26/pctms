@@ -91,32 +91,31 @@ class AdminUsersController extends AdminController {
      */
     public function postCreate()
     {
-        $user = new User;
-        $user->fullname = Input::get('fullname');
-        $user->username = Input::get( 'username' );
-        $user->email = Input::get( 'email' );
-        $user->password = Input::get( 'password' );
+        $this->user->fullname = Input::get('fullname');
+        $this->user->username = Input::get( 'username' );
+        $this->user->email = Input::get( 'email' );
+        $this->user->password = Input::get( 'password' );
 
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
         // auto validation.
-        $user->password_confirmation = Input::get( 'password_confirmation' );
-        $user->confirmed = Input::get( 'confirm' );
+        $this->user->password_confirmation = Input::get( 'password_confirmation' );
+        $this->user->confirmed = Input::get( 'confirm' );
 
         // Permissions are currently tied to roles. Can't do this yet.
         //$user->permissions = $user->roles()->preparePermissionsForSave(Input::get( 'permissions' ));
 
         // Save if valid. Password field will be hashed before save
-        ;
+        $this->user->save();
 
-        if ($user->save())
+        if ($this->user->id)
         {
             // Save roles. Handles updating.
-            $user->saveRoles(Input::get( 'roles' ));
+            $this->user->saveRoles(Input::get( 'roles' ));
 
             $info = new UserInfo;
 
-            $info->user_id = $user->id;
+            $info->user_id = $this->user->id;
             $info->cf_handle = Input::get('cf_handle');
             $info->cc_handle = Input::get('cc_handle');
             $info->cm_handle = Input::get('cm_handle');
@@ -130,12 +129,12 @@ class AdminUsersController extends AdminController {
             $info->save();
 
             // Redirect to the new user page
-            return Redirect::to('admin/users/' . $user->id . '/edit')->with('success', Lang::get('admin/users/messages.create.success'));
+            return Redirect::to('admin/users/' . $this->user->id . '/edit')->with('success', Lang::get('admin/users/messages.create.success'));
         }
         else
         {
             // Get validation errors (see Ardent package)
-            $error = $user->errors()->all();
+            $error = $this->user->errors()->all();
 
             return Redirect::to('admin/users/create')
                 ->withInput(Input::except('password'))

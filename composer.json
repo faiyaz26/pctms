@@ -13,19 +13,13 @@
             {
                 "type": "vcs",
                 "url": "https://github.com/Zizaco/ardent.git"
-            },
-			{
-				"type":"vcs",
-				"url": "https://github.com/Marwelln/basset"
-			}
+            }
         ],
 	"require": {
 		"laravel/framework": "4.1.*",
 		"twbs/bootstrap":  "3.0.0",
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
-		"leafo/lessphp": "v0.3.9",
-		"etrepat/basset": "dev-master",
 		"robclancy/presenter": "1.2.*",
         "j20/php-uuid": "dev-master",
         "bllim/datatables": "*",
@@ -38,7 +32,6 @@
         "mockery/mockery": "dev-master@dev",
         "summerstreet/woodling": "0.1.*",
         "barryvdh/laravel-ide-helper": "dev-master",
-        "leafo/lessphp": "v0.4.0",
         "natxet/CssMin": "dev-master",
         "lmammino/jsmin4assetic": "1.0.*"
 	},

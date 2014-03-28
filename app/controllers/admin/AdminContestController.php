@@ -51,22 +51,16 @@ class AdminContestController extends AdminController {
 		$contest->contest_standing_url =  Input::get('contest_standing_url');
 		$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
 
-		if($contest->save()){
-			if($this->parser($contest)== true){
-				$data ['title'] = "Message";
-				$data ['success']  = "Contest Added";
-				return View::make('admin/message', $data);
-			}else{
-				$contest->delete();
-				$data ['title'] = "Message";
-				$data ['error']  = "Contest not Added, Error Occured";
-				return View::make('admin/message', $data);
-			}
+		//if($contest->save()){
+		if($this->parser($contest)== true){
+			$data ['title'] = "Message";
+			$data ['success']  = "Contest Added";
+			return View::make('admin/message', $data);
 		}else{
-			$error = $contest->errors()->all();
-			return Redirect::to('admin/contest/create')
-			->withInput(Input::all())
-			->with( 'error', $error );
+			$contest->delete();
+			$data ['title'] = "Message";
+			$data ['error']  = "Contest not Added, Error Occured";
+			return View::make('admin/message', $data);
 		}
 		
 } 
@@ -168,23 +162,29 @@ class AdminContestController extends AdminController {
 			array_push($data, $d);
 		}
 
-		foreach ($data as $d) {
-			$summary = new ContestSummary;
-			$summary->contest_id = $contest->id;
-			$summary->username = $d['username'];
-			$summary->solved = $d['solved'];
-			$summary->attempt = $d['attempt'];
-			$summary->position = $d['pos'];
-			$v = $summary->attempt;
-			if($v > 0) $v = 1;
-			$pnt = Setting::get('points.'.$d['pos']);
-			if($pnt == "[]" || $pnt==null){
-				$pnt = 0;
-			}
-			$summary->points = $v * $pnt;
+		if($contest->save()){
+			foreach ($data as $d) {
+				$summary = new ContestSummary;
+				$summary->contest_id = $contest->id;
+				$summary->username = $d['username'];
+				$summary->solved = $d['solved'];
+				$summary->attempt = $d['attempt'];
+				$summary->position = $d['pos'];
+				$v = $summary->attempt;
+				if($v > 0) $v = 1;
+				$pnt = Setting::get('points.'.$d['pos']);
+				if($pnt == "[]" || $pnt==null){
+					$pnt = 0;
+				}
+				$summary->points = $v * $pnt;
 
-			$summary->save();
+				$summary->save();
+			}
+		}else{
+			return false;
 		}
+
+		
 		return true;
 	}
 
