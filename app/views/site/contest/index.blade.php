@@ -48,18 +48,18 @@ Contests
 		</div>
 		<table class = "table table-bordered table-hover">
 			<thead>
-				<th> Name </th>
-				<th> Date </th>
-				<th> Standings </th>
-				<th> Judge Data </th>
+				<th class = "text-center"> Name </th>
+				<th class = "text-center"> Date </th>
+				<th class = "text-center"> Standings </th>
+				<th class = "text-center"> Judge Data </th>
 			</thead>
 			<tbody>
 				@foreach ($contest as $con)
 				 	<tr>
-				 		<td> {{$con->contest_name}} </td>
-				 		<td> {{$con->contest_date}} </td>
-				 		<td>  <a href = "{{$con->contest_standing_url}}" target = "_blank"> Contest Standing </a> </td>
-				 		<td> <a href = "{{$con->contest_judge_data_url}}" target = "_blank"> Judge Data </a> </td>
+				 		<td class = "text-center"> {{$con->contest_name}} </td>
+				 		<td class = "text-center"> {{$con->contest_date}} </td>
+				 		<td class = "text-center">  <a href = "{{$con->contest_standing_url}}" target = "_blank"> Contest Standing </a> </td>
+				 		<td class = "text-center"> <a href = "{{$con->contest_judge_data_url}}" target = "_blank"> Judge Data </a> </td>
 				 	</tr>
 				@endforeach
 			</tbody>

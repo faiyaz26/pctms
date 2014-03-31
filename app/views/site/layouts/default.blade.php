@@ -61,6 +61,7 @@ a university or any other institution. It is kinda intra social network." />
                     <ul class="nav navbar-nav">
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a class="navbar-brand" href="{{{ URL::to('') }}}">{{Setting::get('site_name') }}</a></li>
 						<li {{ (Request::is('/contests') ? ' class="active"' : '') }}><a href="{{{ URL::to('/contests') }}}">Contests</a></li>
+						<li {{ (Request::is('/rank*') ? ' class="active"' : '') }}><a href="{{{ URL::to('/rank') }}}">Rank</a></li>
 					</ul>
 
                     <ul class="nav navbar-nav pull-right">
