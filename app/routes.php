@@ -116,6 +116,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
 Route::get('/contests', 'ContestController@getIndex');
 
+
+
+// Rank routing
+
+Route::get('/rank', 'RankController@getIndex');
+
+
 // Profile Show routes
 Route::get('/settings', 'ProfileController@getSettings');
 Route::post('/settings', 'ProfileController@postSettings');
