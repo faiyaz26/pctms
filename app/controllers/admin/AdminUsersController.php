@@ -165,7 +165,7 @@ class AdminUsersController extends AdminController {
         {
             $roles = $this->role->all();
             $permissions = $this->permission->all();
-            $info = UserInfo::find($user->id);
+            $info = UserInfo::where('user_id' , '=', $user->id)->first();
             // Title
         	$title = Lang::get('admin/users/title.user_update');
         	// mode

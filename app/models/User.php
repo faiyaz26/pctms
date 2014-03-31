@@ -106,9 +106,7 @@ class User extends ConfideUser implements PresentableInterface {
     }
 
     public function user_infos(){
-        return $this->hasOne('UserInfo');
+        return $this->hasOne('UserInfo','user_id', 'id');
     }
-
-
 
 }
