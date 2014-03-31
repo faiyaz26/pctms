@@ -97,6 +97,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
     //Route::get('division', 'AdminDivisionController@index');
 
+    # Settings
+    Route::controller('/settings', 'AdminSettingController');
+
+
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
 });

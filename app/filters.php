@@ -124,7 +124,9 @@ Route::filter('detectLang',  function($route, $request, $lang = 'auto')
 });
 
 View::composer('site.layouts.default', function($view){
-    Setting::set('contest_view_limit', 2);
+    if(Setting::get('contest_view_limit') == "[]"){
+        Setting::set('contest_view_limit', 2);
+    }
     $lim = Setting::get('contest_view_limit');
     $contest_ann = ContestAnnouncement::where('contest_datetime', '>', date('Y-m-d H:i:s'))->take($lim)->orderBy('contest_datetime', 'asc')->get();
     if($contest_ann->count()==0){

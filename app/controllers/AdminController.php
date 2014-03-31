@@ -13,5 +13,5 @@ class AdminController extends BaseController {
         // Apply the admin auth filter
         $this->beforeFilter('admin-auth');
     }
-
+    
 }

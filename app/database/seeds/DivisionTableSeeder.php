@@ -11,16 +11,14 @@ class DivisionTableSeeder extends Seeder {
 
         $users = array(
             array(
-                'id'      => '1',
-                'division_name'      => 'Seniors',
-                'division_description' => 'Seniors and Juniors',
+                'division_name'      => 'Mixed',
+                'division_description' => 'This division means that contestents are from different divisions',
                 'created_at' => $d,
                 'updated_at' => $d,
             ),
             array(
-                'id'      => '2',
-                'division_name'      => 'Beginners',
-                'division_description' => 'Beginners',
+                'division_name'      => 'Team',
+                'division_description' => 'Team Contest Division',
                 'created_at' => $d,
                 'updated_at' => $d,
             )
