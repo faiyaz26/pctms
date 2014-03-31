@@ -203,7 +203,7 @@ return array(
         'String'          => 'Andrew13\Helpers\String', // String
         'Carbon'          => 'Carbon\Carbon', // Carbon
         'Datatables'      => 'Bllim\Datatables\Datatables', // DataTables
-        'Htmldom'         => 'Yangqi\Htmldom\Htmldom'
+        'Htmldom'         => 'Yangqi\Htmldom\Htmldom',
 
     ),
 

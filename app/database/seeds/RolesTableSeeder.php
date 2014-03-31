@@ -7,12 +7,10 @@ class RolesTableSeeder extends Seeder {
         DB::table('roles')->delete();
 
         $adminRole = new Role;
-        $adminRole->id = 1;
         $adminRole->name = 'admin';
         $adminRole->save();
 
         $commentRole = new Role;
-        $commentRole->id = 2;
         $commentRole->name = 'comment';
         $commentRole->save();
 

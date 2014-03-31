@@ -8,7 +8,15 @@ class AdminDashboardController extends AdminController {
 	 */
 	public function getIndex()
 	{
-        return View::make('admin/dashboard');
+
+		$usercnt = User::count();
+
+
+		$data ['usercnt'] = $usercnt;
+
+		$contestcnt = ContestAnnouncement::where('contest_datetime', '>', date('Y-m-d H:i:s'))->count();
+		$data ['contestcnt'] = $contestcnt;
+        return View::make('admin/dashboard', $data);
 	}
 
 }

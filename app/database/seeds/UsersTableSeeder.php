@@ -9,7 +9,6 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             array(
-                'id' => 1,
                 'fullname' => 'admin',
                 'username'      => 'admin',
                 'email'      => 'admin@example.org',
@@ -20,7 +19,6 @@ class UsersTableSeeder extends Seeder {
                 'updated_at' => new DateTime,
             ),
             array(
-                'id' => 2,
                 'fullname' => 'user',
                 'username'      => 'user',
                 'email'      => 'user@example.org',
