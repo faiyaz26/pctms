@@ -163,14 +163,6 @@ a university or any other institution. It is kinda intra social network." />
 						  </div>
 						</div>
 					@endif
-					<div class="panel panel-default">
-					  <div class="panel-heading">
-					    <h3 class="panel-title">Find User</h3>
-					  </div>
-					  <div class="panel-body">
-					  	
-					  </div>
-					</div>
 				</div>
 			</div>
 			
@@ -185,7 +177,7 @@ a university or any other institution. It is kinda intra social network." />
 
 	    <div id="footer">
 	      <div class="container">
-	        <p class="muted credit">Programming Contest Team Management System on <a href="https://github.com/faiyaz26/pctms">Github</a>.</p>
+	        <p class="muted credit">Programming Contest Team Management System on <a href="https://github.com/faiyaz26/pctms">Github by Ahmad Faiyaz</a>.</p>
 	      </div>
 	    </div>
 
