@@ -111,6 +111,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
  *  ------------------------------------------
  */
 
+
+// show contest
+
+Route::get('/contests', 'ContestController@getIndex');
+
 // Profile Show routes
 Route::get('/settings', 'ProfileController@getSettings');
 Route::post('/settings', 'ProfileController@postSettings');

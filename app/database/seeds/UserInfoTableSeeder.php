@@ -9,7 +9,7 @@ class UserInfoTableSeeder extends Seeder {
         $d = $date->format('Y-m-d H:i:s');
         $users = array(
             array(
-                'user_id'      => 1,
+                'user_id'      => User::where('username', '=', 'admin')->first()->id,
                 'cf_handle' => 'admin', 
                 'spoj_handle' => 'admin', 
                 'cc_handle' => 'admin', 
@@ -22,7 +22,7 @@ class UserInfoTableSeeder extends Seeder {
                 'updated_at' => $d,
             ),
             array(
-                'user_id'      => 2,
+                'user_id'      => User::where('username', '=', 'user')->first()->id,
                 'cf_handle' => 'admin', 
                 'spoj_handle' => 'admin', 
                 'cc_handle' => 'admin', 

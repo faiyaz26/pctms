@@ -60,6 +60,7 @@ a university or any other institution. It is kinda intra social network." />
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a class="navbar-brand" href="{{{ URL::to('') }}}">{{Setting::get('site_name') }}</a></li>
+						<li {{ (Request::is('/contests') ? ' class="active"' : '') }}><a href="{{{ URL::to('/contests') }}}">Contests</a></li>
 					</ul>
 
                     <ul class="nav navbar-nav pull-right">
