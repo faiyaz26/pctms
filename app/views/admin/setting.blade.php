@@ -17,7 +17,7 @@
 		</div>
 	@endif
 	<div class="col-md-8">
-		{{Form::open(array('url'=> 'admin/settings/site','method' => "POST", 'role' => 'form'))}}
+		{{Form::open(array('url'=> 'admin/appsettings','method' => "POST", 'role' => 'form'))}}
 		  <div class="form-group">
 		    <label for="site_name">Site Name</label>
 		    <input type="text" class="form-control" name="site_name" value = "{{{Setting::get('site_name')}}}"/>
