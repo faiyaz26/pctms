@@ -25,7 +25,7 @@ class ProfileController extends BaseController {
 		$data['fullname'] = $user->fullname;
 		$data['username']= $username;
 		$data['email']  = $user->email;
-
+		$data['user'] = $user;
 		$email = trim($user->email);
 		$email = strtolower( $email ); // "myemailaddress@example.com"
 		$email = md5( $email );
@@ -163,9 +163,8 @@ class ProfileController extends BaseController {
         {
             // Save roles. Handles updating.
 
-            $info = UserInfo::find($user->id);
+            $info = UserInfo::where('user_id', '=', Auth::user()->id)->first();
 
-            $info->user_id = $user->id;
             $info->cf_handle = Input::get('cf_handle');
             $info->cc_handle = Input::get('cc_handle');
             $info->cm_handle = Input::get('cm_handle');
@@ -176,16 +175,16 @@ class ProfileController extends BaseController {
             $info->sgu_handle = Input::get('sgu_handle');
             $info->tc_handle = Input::get('tc_handle');
 
-            $info->save();
+            $info->save(); 
 
             // Redirect to the new user page
-            return Redirect::to('profile/' . $user->username . '/settings')->with('success', "Information Updated successfully");
+            return Redirect::to('/settings')->with('success', "Information Updated successfully");
         }
         else
         {
             // Get validation errors (see Ardent package)
             $error = $user->errors()->all();
-            return Redirect::to('profile/' . $user->username . '/settings')
+            return Redirect::to('/settings')
                 ->with( 'error', $error );
         }
 	}

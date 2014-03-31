@@ -128,6 +128,7 @@
     							<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"><span class="glyphicon glyphicon-user"></span> Roles</a></li>
     						</ul>
     					</li>
+    					<li{{ (Request::is('admin/appsettings*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/appsettings') }}}"><span class="glyphicon glyphicon-wrench"></span> App Settings</a></li>
     				</ul>
     				<ul class="nav navbar-nav pull-right">
     					<li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>

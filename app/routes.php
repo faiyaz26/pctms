@@ -98,7 +98,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     //Route::get('division', 'AdminDivisionController@index');
 
     # Settings
-    Route::controller('/settings', 'AdminSettingController');
+    Route::controller('/appsettings', 'AdminSettingController');
 
 
     # Admin Dashboard
@@ -126,6 +126,9 @@ Route::get('/rank', 'RankController@getIndex');
 // Profile Show routes
 Route::get('/settings', 'ProfileController@getSettings');
 Route::post('/settings', 'ProfileController@postSettings');
+
+Route::controller('/settings', 'ProfileController');
+
 Route::get('/profile/{username?}', 'ProfileController@show');
 
 Route::get('/profile/{username}/test2', 'ProfileController@test2');

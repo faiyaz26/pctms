@@ -24,6 +24,7 @@
         <div class="col-md-8">
             <h1>{{ $username }}</h1>
             <h6>{{ $fullname }} </h6>
+            <strong> Joined : </strong> {{ $user->joined() }}
             <h3> Total Points: <span class="label label-info">{{$sum}}</span> </h3>
             <table class="table table-hover table-bordered">
                 <thead>

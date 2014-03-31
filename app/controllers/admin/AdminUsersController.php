@@ -216,9 +216,8 @@ class AdminUsersController extends AdminController {
             // Save roles. Handles updating.
             $user->saveRoles(Input::get( 'roles' ));
 
-            $info = UserInfo::find($user->id);
+            $info = UserInfo::where('user_id', '=', Auth::user()->id)->first();
 
-            $info->user_id = $user->id;
             $info->cf_handle = Input::get('cf_handle');
             $info->cc_handle = Input::get('cc_handle');
             $info->cm_handle = Input::get('cm_handle');

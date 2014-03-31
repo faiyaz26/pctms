@@ -10,6 +10,9 @@ class AdminSettingController extends AdminController {
 	{
 		$site_name = Setting::get('site_name');
 		$contestannlimit = $lim = Setting::get('contest_view_limit');
+		$error = $success = null;
+		$data['error'] = $error;
+		$data['success'] = $success;
 		return View::make('admin/setting', $data);
 	}
 

@@ -18,12 +18,12 @@
 		<ul class="nav nav-pills">
 			<li><a href="{{URL::to('/profile')}}">Profile</a></li>
 			<li><a href="#">Blogs</a></li>
-			<li><a href="{{URL::to('/profile/'.$username.'/contests')}}">Contests</a></li>
+			<li><a href="{{URL::to('profile/'.Auth::user()->username.'/contests')}}">Contests</a></li>
 			<li class="active"><a href="{{URL::to('/settings')}}">Settings</a></li>
 		</ul>
 	</div>
 	<div class = "panel-body">
-		{{Form::open(array('url' => 'profile/'.$user->username."/settings", 'method' =>'POST' , 'class' => "form-horizontal"))}}
+		{{Form::open(array('url' => '/settings', 'method' =>'POST' , 'class' => "form-horizontal"))}}
 		<!-- Tab panes -->
 		<div class="panel panel-default">
 			<div class="panel-heading">Basic Info</div>
