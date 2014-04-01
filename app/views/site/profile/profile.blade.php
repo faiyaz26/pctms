@@ -36,7 +36,7 @@
                 <tbody>
                     <tr> <td> Codeforces</td> <td> <a href = "http://codeforces.com/profile/{{$info->cf_handle}}" target= "_blank" style = "text-decoration: none;"> {{$info->cf_handle}} </a> </td> </tr>
                     <tr> <td> CodeChef</td> <td> <a href = "http://www.codechef.com/users/{{$info->cc_handle}}" target= "_blank" style = "text-decoration: none;"> {{$info->cc_handle}} </a> </td> </tr>
-                    <tr> <td> CodeMarshal </td> <td> <a href = "http://codeforces.com/profile/{{$info->cf_handle}}" target= "_blank" style = "text-decoration: none;"> {{$info->cf_handle}} </a> </td> </tr>
+                    <tr> <td> CodeMarshal </td> <td> <a href = "http://algo.codemarshal.com/users/{{$info->cm_handle}}" target= "_blank" style = "text-decoration: none;"> {{$info->cm_handle}} </a> </td> </tr>
                     <tr> <td> TopCoder </td> <td>  {{$info->tc_handle}}  </td> </tr>
                     <tr> <td> LightOJ </td> <td> <a href = "http://www.lightoj.com/volume_userstat.php?user_id={{$info->loj_handle}}" target= "_blank" style = "text-decoration: none;"> {{$info->loj_handle}} </a> </td> </tr>
                     <tr> <td> UVa </td> <td> <a href = "http://codeforces.com/profile/{{$info->cf_handle}}" target= "_blank" style = "text-decoration: none;"> {{$info->uva_handle}} </a> </td> </tr>
