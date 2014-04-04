@@ -57,7 +57,7 @@ class AdminContestController extends AdminController {
 			$destinationPath = public_path()."/files/";
 			$name = $name = Hash::make(Input::get('contest_name').str_random(8)).'.'.Input::file('summary')->getClientOriginalExtension();
 			Input::file('summary')->move($destinationPath, $name);
-			$url = 'http://'.$_SERVER['HTTP_HOST'].'/pctms/public/files/'.$name;
+			$url = 'http://'.$_SERVER['HTTP_HOST'].'/files/'.$name;
 			$contest->contest_standing_url =  $url;
 			$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
 			//if($contest->save()){
