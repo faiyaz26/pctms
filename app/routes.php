@@ -131,7 +131,7 @@ Route::controller('/settings', 'ProfileController');
 
 Route::get('/profile/{username?}', 'ProfileController@show');
 
-Route::get('/profile/{username}/test2', 'ProfileController@test2');
+Route::get('/test2', 'ProfileController@test2');
 
 
 Route::get('profile/{username}/contests', 'ProfileController@contest');

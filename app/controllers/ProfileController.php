@@ -33,7 +33,7 @@ class ProfileController extends BaseController {
 
 
 		$d = DB::table('contests')->join('contest_summary', 'contests.id', '=', 'contest_summary.contest_id')
-		->where('contest_summary.username', '=', $username)->orderBy('contests.division_id', 'asc')->orderBy('contests.season_id','asc')->select();
+		->where('contest_summary.username', '=', $username)->orderBy('contest_summary.created_at', 'asc')->select();
 		
 
 		$data['summary'] = $d->get();
@@ -57,65 +57,23 @@ class ProfileController extends BaseController {
 		return $response;
 	}
 
-	public function test2($username){
-		/*
-		$curl = new anlutro\cURL\cURL;
+	public function test2(){
+		$html = new Htmldom('http://localhost:8080/pctms/public/files/$2y$10$CFaWE1xasCEb8zpGyhhEZObkT.S2lCEMhDP5hk9qxGEof7pRkbxZW.html');
 		
-		$source = 'print ("hello")';
-		$data =  array(
-			'client_secret' =>  '4dcf103f2d07dc9c9ab2ab58de0c164054afb899',
-		    'source' =>  $source,
-		    'lang' => 5,
-		    'time_limit' => 5,
-		    'memory_limit' => 262144,
-		);
-		$url = "http://api.hackerrank.com/checker/submission.json";
-		$response = $curl->post($url, $data);
-		$url = "http://localhost:8080/pctms/public/assets/files/Summary%20-%20Programming%20Contest.htm";
-		$html = new Htmldom($url);
-		//$html->load_file($url);
-		//$html = new Htmldom("http://localhost:8000/assets/files/Summary%20-%20Programming%20Contest.htm");
 
-		return $html;//->find('div.info',0)->find('ul',0)->find('li',0)->find('span', 0)->innertext;
+		$html = $html->find('table', 0);
+		$ret = $html->find('tr');
+		$i = 0;
+		$sz = count($ret);
+		//return $sz;
+		foreach ($ret as $row) {
+			$i++;
+			if($i < 2 || $i >= $sz) continue;
+			$d = array();
+			return $row->find('td', 0)->plaintext;
 
-		*/
-
-		$user = User::where('username' , '=', $username)->first();
-
-
-		$contest_data = array();
-
-		$division = Division::all();
-		$season = Season::all();
-
-		foreach ($division as $div) {
-			$sea = array();
-
-			foreach ($season as $s) {
-				$ret = Contest::where('division_id', '=', $div->id )->where('season_id', $s->id)->get();
-				if($ret->count()){
-					$d = ContestSummary::where('username', '=', $username)->get();
-					if($d->count()){
-						if(isset($sea[$s->season_id])==false){
-							$sea[$s->season_id] = array();
-						}
-						array_push($sea[$s->season_id], $d);
-					}
-				}
-			}
-			if(count($sea)){
-				if(isset($contest_data[$div->division_id])==false){
-							$contest_data[$div->division_id] = array();
-				}
-				array_push($contest_data[$div->division_id], $sea);
-			}
 		}
-
-		$r = array();
-
-		$d = DB::table('contests')->join('contest_summary', 'contests.id', '=', 'contest_summary.contest_id')
-		->where('contest_summary.username', '=', $username)->orderBy('contests.division_id', 'asc')->orderBy('contests.season_id','asc')->select();
-		return $d->where('season_id','=', '2')->get();
+		return $ret;
 	}
 
 

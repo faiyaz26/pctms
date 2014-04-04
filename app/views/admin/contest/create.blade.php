@@ -8,7 +8,7 @@
 			{{  HTML::ul($errors->all()) }}
 		</div>
 	@endif
-	{{ Form::open(array('url' => 'admin/contest', 'class' => "form-horizontal")) }}
+	{{ Form::open(array('url' => 'admin/contest', 'class' => "form-horizontal", 'enctype' => 'multipart/form-data')) }}
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="contest_name">Contest Name</label>
 			<div class="col-sm-8">
@@ -32,12 +32,18 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="contest_name">Contest Standing URL</label>
+			<label class="col-sm-2 control-label" for="contest_name">Contest Standing File</label>
 			<div class="col-sm-8">
-				{{form::text('contest_standing_url', null, array('class' => "form-control"))}}
-				<p class="text-danger">
-						Dont' Use HTTPS, start the url with http://
-				</p>
+				{{Form::file('summary', array('class'=> 'form-control'))}}
+			</div>
+		</div>
+		<div class = "form-group">
+			<label class="col-sm-2 control-label" for="summary_type">Summary Type</label>
+			<div class="col-sm-8">
+				<select class= "form-control" name = "summary_type">
+					<option value = "1"> PC^2 8.7 </option>
+					<option value = "2"> PC^2 9+ </option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group">

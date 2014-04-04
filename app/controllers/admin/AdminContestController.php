@@ -42,26 +42,44 @@ class AdminContestController extends AdminController {
 	public function store()
 	{
 		//
-		$contest = new Contest;
-		$contest->contest_name = Input::get('contest_name');
-		$contest->contest_date = Input::get('contest_date');
-		$contest->contest_description = Input::get('contest_description');
-		$contest->season_id = Input::get('season_id');
-		$contest->division_id = Input::get('division_id');
-		$contest->contest_standing_url =  Input::get('contest_standing_url');
-		$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
+		
 
-		//if($contest->save()){
-		if($this->parser($contest)== true){
-			$data ['title'] = "Message";
-			$data ['success']  = "Contest Added";
-			return View::make('admin/message', $data);
+		if(Input::hasFile('summary')){
+			$contest = new Contest;
+			$contest->contest_name = Input::get('contest_name');
+			$contest->contest_date = Input::get('contest_date');
+			$contest->contest_description = Input::get('contest_description');
+			$contest->season_id = Input::get('season_id');
+			$contest->division_id = Input::get('division_id');
+
+			$summary = Input::file('summary');
+
+			$destinationPath = public_path()."/files/";
+			$name = $name = Hash::make(Input::get('contest_name').str_random(8)).'.'.Input::file('summary')->getClientOriginalExtension();
+			Input::file('summary')->move($destinationPath, $name);
+			$url = 'http://'.$_SERVER['HTTP_HOST'].'/pctms/public/files/'.$name;
+			$contest->contest_standing_url =  $url;
+			$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
+			//if($contest->save()){
+			if($this->parser($contest, Input::get('summary_type'))== true){
+				$data ['title'] = "Message";
+				$data ['success']  = "Contest Added";
+				return View::make('admin/message', $data);
+			}else{
+				$contest->delete();
+				$data ['title'] = "Message";
+				$data ['error']  = "Contest not Added, Error Occured";
+				return View::make('admin/message', $data);
+			}
 		}else{
 			$contest->delete();
 			$data ['title'] = "Message";
-			$data ['error']  = "Contest not Added, Error Occured";
+			$data ['error']  = "Contest not Added, Summary Not Found";
 			return View::make('admin/message', $data);
 		}
+
+
+		
 		
 } 
 
@@ -116,29 +134,33 @@ class AdminContestController extends AdminController {
 		return View::make('admin/message', $data);
 	}
 
-	public function parser(Contest $contest){
+	public function parser(Contest $contest, $type){
 
 		$curl = new cURL;
 		$url = $contest->contest_standing_url;
+		//dd($url);
 		$page = $curl->get($url);
-			//dd($page->body);
-		if($page->info['http_code'] == 404){
-			return false;
-		}
 
 		$data = array();
 
 		$html = new Htmldom($page->body);
 
-
+		
 		$html = $html->find('table', 0);
 		$ret = $html->find('tr');
 		$i = 0;
 		$sz = count($ret);
+		//dd($sz);
 		//return $sz;
+		$st = 2;
+		$sz = $sz - 1;
+		if($type == 2){
+			$st = 3;
+			$sz = $sz + 1;
+		}
 		foreach ($ret as $row) {
 			$i++;
-			if($i < 3 || $i >= $sz) continue;
+			if($i < $st || $i >= $sz) continue;
 			$d = array();
 			$d['pos'] = $row->find('td', 0)->plaintext;
 			
@@ -148,7 +170,7 @@ class AdminContestController extends AdminController {
 			$names = explode(']',$names[count($names)-1]);
 
 			$d['username']  = $names[0];
-
+			//dd($row->find('td', 2)->plaintext);
 			$d['solved']  =    $row->find('td', 2)->plaintext;
 
 
