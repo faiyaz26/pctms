@@ -170,9 +170,11 @@ class AdminContestController extends AdminController {
 			$names = explode(']',$names[count($names)-1]);
 
 			$d['username']  = $names[0];
-			//dd($row->find('td', 2)->plaintext);
-			$d['solved']  =    $row->find('td', 2)->plaintext;
-
+			try{
+				$d['solved']  =    $row->find('td', 2)->plaintext;
+			}catch(Exception $e){
+				dd($url);
+			}
 
 			$info = $row->last_child()->plaintext;
 
