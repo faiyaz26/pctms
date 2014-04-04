@@ -55,9 +55,12 @@ class AdminContestController extends AdminController {
 			$summary = Input::file('summary');
 
 			$destinationPath = public_path()."/files/";
-			$name = $name = Hash::make(Input::get('contest_name').str_random(8)).'.'.Input::file('summary')->getClientOriginalExtension();
+			$name = $name = str_random(8).'.'.Input::file('summary')->getClientOriginalExtension();
+			$name = str_replace('/', '', $name);
 			Input::file('summary')->move($destinationPath, $name);
+			
 			$url = 'http://'.$_SERVER['HTTP_HOST'].'/files/'.$name;
+
 			$contest->contest_standing_url =  $url;
 			$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
 			//if($contest->save()){
@@ -194,7 +197,7 @@ class AdminContestController extends AdminController {
 				$summary->solved = $d['solved'];
 				$summary->attempt = $d['attempt'];
 				$summary->position = $d['pos'];
-				$v = $summary->attempt;
+				$v = $summary->solved;
 				if($v > 0) $v = 1;
 				$pnt = Setting::get('points.'.$d['pos']);
 				if($pnt == "[]" || $pnt==null){
