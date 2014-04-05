@@ -134,7 +134,7 @@ class ProfileController extends BaseController {
             $info->sgu_handle = Input::get('sgu_handle');
             $info->tc_handle = Input::get('tc_handle');
 
-            $info->save(); 
+            $info->save();
 
             // Redirect to the new user page
             return Redirect::to('/settings')->with('success', "Information Updated successfully");
