@@ -33,7 +33,7 @@ class ProfileController extends BaseController {
 
 
 		$d = DB::table('contests')->join('contest_summary', 'contests.id', '=', 'contest_summary.contest_id')
-		->where('contest_summary.username', '=', $username)->orderBy('contest_summary.created_at', 'asc')->select();
+		->where('contest_summary.username', '=', $username)->orderBy('contests.contest_date', 'asc')->select();
 		
 
 		$data['summary'] = $d->get();
