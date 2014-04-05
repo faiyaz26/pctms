@@ -32,10 +32,11 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="contest_name">Contest Standing File</label>
+			<label class="col-sm-2 control-label" for="contest_standing_url">Contest Standing URL</label>
 			<div class="col-sm-8">
-				{{Form::file('summary', array('class'=> 'form-control'))}}
+				{{form::text('contest_standing_url', null, array('class' => "form-control"))}}
 			</div>
+			<p class="text-danger">Don't Use HTTPS, use HTTP</p>
 		</div>
 		<div class = "form-group">
 			<label class="col-sm-2 control-label" for="summary_type">Summary Type</label>

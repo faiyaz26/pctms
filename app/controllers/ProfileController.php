@@ -58,8 +58,9 @@ class ProfileController extends BaseController {
 	}
 
 	public function test2(){
-		$html = new Htmldom('http://localhost:8080/pctms/public/files/$2y$10$CFaWE1xasCEb8zpGyhhEZObkT.S2lCEMhDP5hk9qxGEof7pRkbxZW.html');
-		
+		$html = new Htmldom('http://dl.dropboxusercontent.com/u/34972503/NSU_Contest/5_4_14/summary.html');
+
+		return $html;
 
 		$html = $html->find('table', 0);
 		$ret = $html->find('tr');

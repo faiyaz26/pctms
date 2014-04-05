@@ -44,47 +44,40 @@ class AdminContestController extends AdminController {
 		//
 		
 
-		if(Input::hasFile('summary')){
-			$contest = new Contest;
-			$contest->contest_name = Input::get('contest_name');
-			$contest->contest_date = Input::get('contest_date');
-			$contest->contest_description = Input::get('contest_description');
-			$contest->season_id = Input::get('season_id');
-			$contest->division_id = Input::get('division_id');
+		$contest = new Contest;
+		$contest->contest_name = Input::get('contest_name');
+		$contest->contest_date = Input::get('contest_date');
+		$contest->contest_description = Input::get('contest_description');
+		$contest->season_id = Input::get('season_id');
+		$contest->division_id = Input::get('division_id');
+/*
+		$summary = Input::file('summary');
 
-			$summary = Input::file('summary');
-
-			$destinationPath = public_path()."/files/";
-			$name = $name = str_random(8).'.'.Input::file('summary')->getClientOriginalExtension();
-			$name = str_replace('/', '', $name);
-			Input::file('summary')->move($destinationPath, $name);
-			
-			$url = 'http://'.$_SERVER['HTTP_HOST'].'/files/'.$name;
-
-			$contest->contest_standing_url =  $url;
-			$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
-			//if($contest->save()){
-			if($this->parser($contest, Input::get('summary_type'))== true){
-				$data ['title'] = "Message";
-				$data ['success']  = "Contest Added";
-				return View::make('admin/message', $data);
-			}else{
-				$contest->delete();
-				$data ['title'] = "Message";
-				$data ['error']  = "Contest not Added, Error Occured";
-				return View::make('admin/message', $data);
-			}
+		$destinationPath = public_path()."/files/";
+		$name = $name = str_random(8).'.'.Input::file('summary')->getClientOriginalExtension();
+		$name = str_replace('/', '', $name);
+		Input::file('summary')->move($destinationPath, $name);
+		
+		$url = 'http://'.$_SERVER['HTTP_HOST'].'/files/'.$name;
+*/
+		$contest->contest_standing_url =  Input::get('contest_standing_url');
+		$contest->contest_judge_data_url = Input::get('contest_judge_data_url');
+		//if($contest->save()){
+		if($this->parser($contest, Input::get('summary_type'))== true){
+			$data ['title'] = "Message";
+			$data ['success']  = "Contest Added";
+			return View::make('admin/message', $data);
 		}else{
 			$contest->delete();
 			$data ['title'] = "Message";
-			$data ['error']  = "Contest not Added, Summary Not Found";
+			$data ['error']  = "Contest not Added, Error Occured";
 			return View::make('admin/message', $data);
 		}
 
 
 		
 		
-} 
+	} 
 
 
 	/**
